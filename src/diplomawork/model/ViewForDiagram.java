@@ -29,7 +29,11 @@ import org.jfree.ui.RectangleInsets;
  * @author Volodymyr
  */
 public class ViewForDiagram extends Thread {
+
     private TimeSeries timeSeries;
+    String stock = "EURUSD=X";
+
+    private String url;
 
     public TimeSeries getTimeSeries() {
         return timeSeries;
@@ -40,7 +44,9 @@ public class ViewForDiagram extends Thread {
         return chartPanel;
     }
 
-    public ViewForDiagram() {
+    public ViewForDiagram(String name, String url) {
+        this.url = url;
+        this.stock = name;
         chartPanel = createChartPanel();
         this.start();
     }
@@ -54,7 +60,7 @@ public class ViewForDiagram extends Thread {
      */
     private JFreeChart createChart(XYDataset dataset) {
         JFreeChart chart = ChartFactory.createTimeSeriesChart(
-                "EUR/USD", // title
+                stock, // title
                 "Date", // x-axis label
                 "Price Per Unit", // y-axis label
                 dataset, // data
@@ -72,14 +78,14 @@ public class ViewForDiagram extends Thread {
         plot.setDomainCrosshairVisible(true);
         plot.setRangeCrosshairVisible(true);
         plot.setOutlinePaint(null);
-        
+
         XYItemRenderer r = plot.getRenderer();
         if (r instanceof XYLineAndShapeRenderer) {
             XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) r;
             renderer.setBaseShapesVisible(true);
             renderer.setBaseShapesFilled(true);
             renderer.setDrawSeriesLineAsPath(true);
-            renderer.setSeriesPaint(0,Color.BLUE);
+            renderer.setSeriesPaint(0, Color.BLUE);
         }
         DateAxis axis = (DateAxis) plot.getDomainAxis();
         axis.setDateFormatOverride(new SimpleDateFormat("dd HH:mm:ss"));
@@ -92,7 +98,7 @@ public class ViewForDiagram extends Thread {
      * @return The dataset.
      */
     private TimeSeriesCollection createDataset() {
-        timeSeries = new TimeSeries("EUR/USD");
+        timeSeries = new TimeSeries(stock);
         TimeSeriesCollection dataset = new TimeSeriesCollection();
         dataset.addSeries(timeSeries);
         return dataset;
@@ -108,18 +114,25 @@ public class ViewForDiagram extends Thread {
         ChartPanel panel = new ChartPanel(chart);
         panel.setFillZoomRectangle(true);
         panel.setMouseWheelEnabled(true);
+
         return panel;
     }
 
     @Override
     public void run() {
+        Double price = new Double(-1);
         while (this != null) {
-            Float price = (GetDataFormYahoo.getPriceValue() != null) ? GetDataFormYahoo.getPriceValue().floatValue() : 1;
-            timeSeries.add(new Second(new Date(System.currentTimeMillis())), price);
+//          Float price = (GetDataFormYahoo.getPriceValue(url) != null) ? GetDataFormYahoo.getPriceValue().floatValue() : 1;
+            Double tmpPrice = GetDataFormYahoo.getPriceValue(url);
+            if (!tmpPrice.equals(price)) {
+                price = GetDataFormYahoo.getPriceValue(url);
+                timeSeries.add(new Second(new Date(System.currentTimeMillis())), price);
+            }
+
             synchronized (this) {
                 try {
-                    System.out.println("Name"+this.getName()+" waiting");
-                    this.wait(Timer.ONE_SECOND*5);
+                    System.out.println("Name" + this.getName() + " waiting");
+                    this.wait(Timer.ONE_SECOND * 5);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(ViewForDiagram.class.getName()).log(Level.SEVERE, null, ex);
                 }

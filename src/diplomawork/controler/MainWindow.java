@@ -5,11 +5,17 @@
  */
 package diplomawork.controler;
 
+import diplomawork.model.CandleStickChartPanel;
+import diplomawork.model.GetDataFormYahoo;
 import diplomawork.model.JPEGSaver;
 import diplomawork.model.NNRecognizer;
+import diplomawork.model.Quote;
 import diplomawork.model.ViewForDiagram;
+import java.awt.GridLayout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.Plot;
 
@@ -22,19 +28,24 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    ViewForDiagram viewForDiagram = new ViewForDiagram();
-    ViewForDiagram viewForDiagram2 = new ViewForDiagram();
+    private final String stock = "EURUSD=X";
+//    private final String stock2 = "BZK16.NYM";
+    String url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20csv%20where%20url%3D%27download.finance.yahoo.com%2Fd%2Fquotes.csv%3Fs%3D"+stock+"%26f%3Dnd1t1l1ohgc1p2wv%27&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+    private final String name = GetDataFormYahoo.getQouteFromYahoo(url).getName();
+    ViewForDiagram viewForDiagram = new ViewForDiagram(name, url);
+    CandleStickChartPanel candleStickChartPanel = new CandleStickChartPanel(name, url);
     NNRecognizer nNRecognizer = new NNRecognizer();
     JPEGSaver jPEGSaver = new JPEGSaver(viewForDiagram.getTimeSeries(),nNRecognizer);
 
     public MainWindow() {
         initComponents();
         viewForDiagram.getTimeSeries().addChangeListener(jPEGSaver);
-//        JPEGSaver jPEGSaver = new JPEGSaver(viewForDiagram.getTimeSeries());
-
-        //viewForDiagram.getChartPanel().getChart().getXYPlot().addChangeListener(jPEGSaver);
-        jInternalFrame1.setContentPane(viewForDiagram.getChartPanel());
-        jInternalFrame2.setContentPane(viewForDiagram2.getChartPanel());
+        JPanel jPanel = new JPanel(new GridLayout(2, 1));
+       
+        jPanel.add(viewForDiagram.getChartPanel());
+        jPanel.add(candleStickChartPanel.getChartPanel()); 
+        jInternalFrame1.setContentPane(jPanel);
+//        jInternalFrame2.setContentPane(viewForDiagram2.getChartPanel());
     }
 
     /**
@@ -48,21 +59,22 @@ public class MainWindow extends javax.swing.JFrame {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jButton1 = new javax.swing.JButton();
-        jInternalFrame2 = new javax.swing.JInternalFrame();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jInternalFrame1.setMaximumSize(new java.awt.Dimension(1000, 800));
+        jInternalFrame1.setPreferredSize(new java.awt.Dimension(1000, 800));
         jInternalFrame1.setVisible(true);
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 398, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 770, Short.MAX_VALUE)
         );
 
         jButton1.setText("jButton1");
@@ -72,19 +84,6 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jInternalFrame2.setVisible(true);
-
-        javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
-        jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
-        jInternalFrame2Layout.setHorizontalGroup(
-            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
-        );
-        jInternalFrame2Layout.setVerticalGroup(
-            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 695, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,20 +92,17 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton1)
+                        .addGap(0, 522, Short.MAX_VALUE))
+                    .addComponent(jInternalFrame1, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jInternalFrame2)
-                    .addComponent(jInternalFrame1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jInternalFrame1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1))
         );
 
@@ -153,14 +149,16 @@ public class MainWindow extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(()-> {
-            new MainWindow().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new MainWindow().setVisible(true);
+            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JInternalFrame jInternalFrame2;
     // End of variables declaration//GEN-END:variables
 }
