@@ -23,19 +23,23 @@ import org.neuroph.imgrec.ImageRecognitionPlugin;
  */
 public class NNRecognizer extends Thread implements JPGFileChangeListener {
 
+    /**
+     * Create object and run the thread
+     */
     public NNRecognizer() {
         this.start();
     }
-    
 
+    /**
+     * Waiting for notifycation about changing JPEG file
+     *
+     */
     @Override
     public void run() {
         while (this != null) {
             synchronized (this) {
                 try {
-                    System.out.println("Thread wait for awaike");
                     this.wait();
-                    System.out.println("Thread awaiked");
                 } catch (InterruptedException ex) {
                     Logger.getLogger(NNRecognizer.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -43,14 +47,15 @@ public class NNRecognizer extends Thread implements JPGFileChangeListener {
             recognizeImage();
         }
     }
-    
-    /***
+
+    /**
+     *
      * Recognized static jpeg file
      */
     public void recognizeImage() {
         // load trained neural network saved with NeurophStudio (specify existing neural network file here)
         //NeuralNetwork nnet = NeuralNetwork.createFromFile("F:\\Users\\Volodymyr\\Documents\\NetBeansProjects\\Neuroph project\\Neural Networks\\newNN.nnet");
-        NeuralNetwork nnet = NeuralNetwork.createFromFile("src/resorce/BW20on20DW2.nnet");
+        NeuralNetwork nnet = NeuralNetwork.createFromFile("src/resorce/BW60on30hlnc15last.nnet");
 
         // get the image recognition plugin from neural network
         ImageRecognitionPlugin imageRecognition = (ImageRecognitionPlugin) nnet.getPlugin(ImageRecognitionPlugin.class);
@@ -62,21 +67,22 @@ public class NNRecognizer extends Thread implements JPGFileChangeListener {
 
         try {
             // image recognition is done here
-            HashMap<String, Double> output = imageRecognition.recognizeImage(new File("src/resorce/Plot.jpg")); // specify some existing image file here
+            HashMap<String, Double> output = imageRecognition.recognizeImage(new File("src/resorce/RecogData/DoubleTop_1.jpg")); // specify some existing image file here
+//            HashMap<String, Double> output = imageRecognition.recognizeImage(new File("src/resorce/Plot.jpg")); // specify some existing image file here
             String outputString = "";
             for (String key : output.keySet()) {
                 outputString += key + " : " + numberFormat.format(output.get(key)) + "\n";
             }
             System.out.println(outputString);
-            Neuron[] neurophs = imageRecognition.getParentNetwork().getInputNeurons();
-            for (int l = 0; l < neurophs.length; l++) {
-                if (l % 20 == 0) {
-                    System.out.println();
-                }
-                System.out.print(numberFormat.format(neurophs[l].getNetInput()) + " ");
-
-            }
-            System.out.println();
+//            Neuron[] neurophs = imageRecognition.getParentNetwork().getInputNeurons();
+//            for (int l = 0; l < neurophs.length; l++) {
+//                if (l % 20 == 0) {
+//                    System.out.println();
+//                }
+//                System.out.print(numberFormat.format(neurophs[l].getNetInput()) + "\t");
+//
+//            }
+//            System.out.println();
 
             // System.out.println(output.toString());
         } catch (IOException ioe) {
@@ -86,21 +92,22 @@ public class NNRecognizer extends Thread implements JPGFileChangeListener {
         }
     }
 
-//    public static void main(String[] args) {
-//        NNRecognizer nNRecognizer = new NNRecognizer();
-//        nNRecognizer.recognizeImage();
-//    }
+    public static void main(String[] args) {
+        NNRecognizer nNRecognizer = new NNRecognizer();
+        nNRecognizer.recognizeImage();
+        nNRecognizer.stop();
+    }
 
     @Override
-    /***
-     * 
+    /**
+     * *
+     *
      * Run when new jpeg file was saved
      */
     public void fileChanged() {
         synchronized (this) {
-            System.out.println("Thread notifyed");
             this.notify();
-            
+
         }
     }
 }

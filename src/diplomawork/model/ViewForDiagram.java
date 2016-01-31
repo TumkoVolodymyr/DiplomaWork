@@ -118,6 +118,10 @@ public class ViewForDiagram extends Thread {
         return panel;
     }
 
+    /**
+     * Periodly conecting for server and check a data if it was change than
+     * update a chart view for panel
+     */
     @Override
     public void run() {
         Double price = new Double(-1);
@@ -131,7 +135,6 @@ public class ViewForDiagram extends Thread {
 
             synchronized (this) {
                 try {
-                    System.out.println("Name" + this.getName() + " waiting");
                     this.wait(Timer.ONE_SECOND * 5);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(ViewForDiagram.class.getName()).log(Level.SEVERE, null, ex);

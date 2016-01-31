@@ -5,10 +5,10 @@
         <group>
             <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/CandleStickChartPanel.java</file>
             <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/DataFromYahoo.java</file>
-            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/GetDataFormYahoo.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/JPGFileChangeListener.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/JPEGSaver.java</file>
             <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/ViewForDiagram.java</file>
-            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/CandleStickChart.java</file>
-            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/Row.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/NNRecognizer.java</file>
             <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/controler/MainWindow.java</file>
         </group>
     </open-files>

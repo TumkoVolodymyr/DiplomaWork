@@ -13,8 +13,9 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.ZoneId;
 import java.util.Date;
-import java.util.Locale;
+import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,36 +33,53 @@ public class GetDataFormYahoo {
     public static Double getPriceValue(String url) {
         return getQouteFromYahoo(url).getLast();
     }
-       
+    /***
+     * Get DataFromYahoo from YahoooFinance URL
+     * @param url URL adres off server
+     * @return object from json string
+     */
     private static DataFromYahoo getData(String url) {
         Gson gson = new Gson();
         String stringObj = getContenxtWeb(url);
         DataFromYahoo dataFromYahoo = gson.fromJson(stringObj, DataFromYahoo.class);
         return dataFromYahoo;
     }
-
+    /***
+     * Get Quote from YahoooFinance URL
+     * @param url URL adres off server
+     * @return Quote with all prices
+     */
     public static Quote getQouteFromYahoo(String url) {
         DataFromYahoo dataFromYahoo = getData(url);
         String name = dataFromYahoo.getQuery().getResults().getRow().getName();
-        String stringDate = dataFromYahoo.getQuery().getResults().getRow().getDate() + " " + dataFromYahoo.getQuery().getResults().getRow().getTime().replace("pm", " PM");
+        String timeStr = dataFromYahoo.getQuery().getResults().getRow().getTime().toUpperCase();
+        String stringDate = dataFromYahoo.getQuery().getResults().getRow().getDate() + " " + timeStr;
         Double Last = Double.valueOf(dataFromYahoo.getQuery().getResults().getRow().getLast());
         Double Open = Double.valueOf(dataFromYahoo.getQuery().getResults().getRow().getOpen());
         Double High = Double.valueOf(dataFromYahoo.getQuery().getResults().getRow().getHigh());
         Double Low = Double.valueOf(dataFromYahoo.getQuery().getResults().getRow().getLow());
         Double Volume = Double.valueOf(dataFromYahoo.getQuery().getResults().getRow().getVolume());
-        DateFormat format = new SimpleDateFormat("M/dd/yyyy h:mm a", Locale.US);
+        DateFormat format = new SimpleDateFormat("M/dd/yyyy h:mma");
+        format.setTimeZone(TimeZone.getTimeZone(ZoneId.of("UTC")));
         Date dateD;
         try {
             dateD = format.parse(stringDate);
-            System.out.println("Date 2= "+ dateD);
+//            Locale local = new Locale("uk", "ukr");
+//            System.out.println("Date 2= " + dateD);
+//            DateFormat df = DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT, local);
+//            System.out.println("currentDate = " + df.format(dateD));
             Quote quote = new Quote(name, dateD, Last, Open, High, Low, Volume);
             return quote;
         } catch (ParseException ex) {
-            Logger.getLogger(НовыйClass.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GanerateDataForTrainNN.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-
+    /***
+     * Connect to server and get JSONG stiring
+     * @param urlS URL adres off server
+     * @return  jsong string
+     */
     public static String getContenxtWeb(String urlS) {
         String result = "";
         URL url;

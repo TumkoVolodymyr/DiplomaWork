@@ -29,31 +29,46 @@ import org.jfree.ui.RectangleInsets;
 public class JPEGSaver implements SeriesChangeListener {
 
     private TimeSeries timeSeries;
-    int n = 0, trainCount=0;
+    int n = 0, trainCount = 0;
+    int width = 20, hight = 100;
     JPGFileChangeListener fileChangeListener;
     String nameOfJPGFile;
 
+    /**
+     *
+     * Creat new object
+     *
+     * @param timeSeries data for chart
+     */
     public JPEGSaver(TimeSeries timeSeries) {
         this.timeSeries = timeSeries;
     }
 
+    /**
+     * *
+     * Create new object
+     *
+     * @param timeSeries data for chart
+     * @param fileChangeListener listner of file changes
+     */
     public JPEGSaver(TimeSeries timeSeries, JPGFileChangeListener fileChangeListener) {
         this.timeSeries = timeSeries;
         this.fileChangeListener = fileChangeListener;
     }
-    
-    
 
     /**
      * Save plot to file
      */
     public void saveDiagramToJPeG() {
-        int startIndexForTimeSeries = (timeSeries.getItemCount() >= 5) ? timeSeries.getItemCount() - 5 : 0;
+        int n = 7;
+        int startIndexForTimeSeries = (timeSeries.getItemCount() >= n) ? timeSeries.getItemCount() - n : 0;
         TimeSeries timeSeries = this.timeSeries;
-        try {
-            timeSeries = this.timeSeries.createCopy(startIndexForTimeSeries, this.timeSeries.getItemCount() - 1);
-        } catch (CloneNotSupportedException ex) {
-            Logger.getLogger(JPEGSaver.class.getName()).log(Level.SEVERE, null, ex);
+        if (this.timeSeries.getItemCount() > 7) {
+            try {
+                timeSeries = this.timeSeries.createCopy(startIndexForTimeSeries, this.timeSeries.getItemCount() - 1);
+            } catch (CloneNotSupportedException ex) {
+                Logger.getLogger(JPEGSaver.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         TimeSeriesCollection dataset = new TimeSeriesCollection();
@@ -66,7 +81,15 @@ public class JPEGSaver implements SeriesChangeListener {
         );
         saveChartToFile(chart, false);
     }
-    public void saveChartToFile(JFreeChart chart, boolean trainFlag){
+
+    /**
+     * *
+     * Save chart to .jpg file
+     *
+     * @param chart Chart that saved
+     * @param trainFlag flag for saving train or usual name file
+     */
+    public void saveChartToFile(JFreeChart chart, boolean trainFlag) {
         chart.setBackgroundPaint(Color.white);
         XYPlot plot = (XYPlot) chart.getPlot();
         plot.getDomainAxis().setVisible(false);
@@ -83,23 +106,28 @@ public class JPEGSaver implements SeriesChangeListener {
         }
         plot.getRenderer().setSeriesStroke(0, new java.awt.BasicStroke(4f));
         File f = null;
-        if(trainFlag){
-            nameOfJPGFile = "src/resorce/TranePlot"+trainCount+++".jpg";
+        if (trainFlag) {
+            nameOfJPGFile = "src/resorce/TranePlot" + trainCount++ + ".jpg";
             f = new File(nameOfJPGFile);
-        }else{
+        } else {
 //            f = new File("src/resorce/Plot" + n++ + ".jpg");
             f = new File("src/resorce/Plot" + ".jpg");
         }
-        
+
         try {
-            ChartUtilities.saveChartAsJPEG(f, chart, 80, 80);
+            ChartUtilities.saveChartAsJPEG(f, chart, width, hight);
         } catch (IOException ex) {
             Logger.getLogger(JPEGSaver.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-   
-
+    /**
+     * *
+     * Save chart to file when series changed and send notifycation to
+     * JPGFileChangeListener about changing file
+     *
+     * @param event SeriesChangeEvent
+     */
     @Override
     public void seriesChanged(SeriesChangeEvent event) {
         saveDiagramToJPeG();

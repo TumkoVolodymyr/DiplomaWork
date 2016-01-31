@@ -37,7 +37,7 @@ public class CandleStickChartPanel extends Thread {
 
     public CandleStickChartPanel(String name, String url) {
         this.url = url;
-        stock= name;
+        stock = name;
         chartPanel = createChartPanel();
         this.start();
     }
@@ -55,7 +55,7 @@ public class CandleStickChartPanel extends Thread {
         XYPlot plot = (XYPlot) chart.getPlot();
         DateAxis axis = (DateAxis) plot.getDomainAxis();
         axis.setDateFormatOverride(new SimpleDateFormat("dd HH:mm"));
-        
+
         return chart;
     }
 
@@ -85,6 +85,10 @@ public class CandleStickChartPanel extends Thread {
         return panel;
     }
 
+    /**
+     * Periodly conecting for server and check a data if it was change than
+     * update a candelstick panel
+     */
     @Override
     public void run() {
         Date lastDate = new Date();
@@ -92,19 +96,16 @@ public class CandleStickChartPanel extends Thread {
         stock = quote.getName();
         while (this != null) {
             quote = GetDataFormYahoo.getQouteFromYahoo(url);
-            
-            System.out.println("quote.getDate()= "+quote.getDate());
-            if (lastDate.compareTo(quote.getDate())!=0) {
-                lastDate =  quote.getDate();
+            if (lastDate.compareTo(quote.getDate()) != 0) {
+                lastDate = quote.getDate();
                 OHLCItem oHLCItem = new OHLCItem(new Minute(quote.getDate()), quote.getOpen(), quote.getHigh(), quote.getLow(), quote.getLast());
                 oHLCSeries.add(oHLCItem);
                 oHLCSeries.fireSeriesChanged();
             }
-            
+
             synchronized (this) {
                 try {
-                    System.out.println("Name" + this.getName() + " waiting");
-                    this.wait(Timer.ONE_SECOND * 5*4);
+                    this.wait(Timer.ONE_SECOND * 5 * 4);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(ViewForDiagram.class.getName()).log(Level.SEVERE, null, ex);
                 }
