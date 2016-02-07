@@ -3,13 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/yahoodata/Row.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/Hurst.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/util/GanerateDataForTrainNN.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/NNRecognizer.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/util/HopfieldSample.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/LineChartPanel.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/Quote.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/yahoodata/Results.java</file>
             <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/CandleStickChartPanel.java</file>
-            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/DataFromYahoo.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/yahoodata/DataFromYahoo.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/yahoodata/Query.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/GetDataFormYahoo.java</file>
             <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/JPGFileChangeListener.java</file>
             <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/JPEGSaver.java</file>
-            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/ViewForDiagram.java</file>
-            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/NNRecognizer.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/DB/DB_table.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/DB/QuoteDataDB.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/DB/QouteDataDBControler.java</file>
             <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/controler/MainWindow.java</file>
+            <file>file:/F:/Users/Volodymyr/Documents/NetBeansProjects/DiplomaWork/src/diplomawork/model/AdaptivFilter.java</file>
         </group>
     </open-files>
 </project-private>

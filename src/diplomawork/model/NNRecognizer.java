@@ -67,8 +67,8 @@ public class NNRecognizer extends Thread implements JPGFileChangeListener {
 
         try {
             // image recognition is done here
-            HashMap<String, Double> output = imageRecognition.recognizeImage(new File("src/resorce/RecogData/DoubleTop_1.jpg")); // specify some existing image file here
-//            HashMap<String, Double> output = imageRecognition.recognizeImage(new File("src/resorce/Plot.jpg")); // specify some existing image file here
+//            HashMap<String, Double> output = imageRecognition.recognizeImage(new File("src/resorce/RecogData/DoubleTop_1.jpg")); // specify some existing image file here
+            HashMap<String, Double> output = imageRecognition.recognizeImage(new File("src/resorce/Plot.jpg")); // specify some existing image file here
             String outputString = "";
             for (String key : output.keySet()) {
                 outputString += key + " : " + numberFormat.format(output.get(key)) + "\n";

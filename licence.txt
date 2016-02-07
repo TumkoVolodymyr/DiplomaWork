@@ -1,0 +1,43 @@
+1. This Licence applies to the software NEFCLASS-J.
+   Each licensee is addressed as "you" 
+
+2. Detlef and Ulrike Nauck, Braunschweig, Germany, herby disclaim all
+   copyright interests in the program NEFCLASS-J and its documentation. 
+
+3. NEFCLASS-J is not free software, but it may be used free of charge, 
+   for educational, scientific and personal purposes. You can redistribute 
+   it under the terms of this licence. 
+
+4. You may not use NEFCLASS-J for commercial purposes. You may not sell
+   NEFCLASS-J, and you may not sell or commercially exploit the results 
+   you obtained by using NEFCLASS-J. 
+
+5. You may copy and distribute verbatim copies of NEFCLASS-J as you receive it,
+   in any medium, provided that you conspicuously and appropriately publish on
+   each copy an appropriate copyright notice and disclaimer of warranty;
+   keep intact all the notices that refer to this Licence and to the absence
+   of any warranty; and give any other recipients of the Program a copy of 
+   this licence along with the Program. 
+
+6. You may charge a fee for the physical act of transferring a copy. 
+
+7. NO WARRANTY 
+
+   BECAUSE NEFCLASS-J IS LICENCED FREE OF CHARGE, THERE IS NO WARRANTY FOR
+   NEFCLASS-J, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE
+   STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE NEFCLASS-J
+   "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT
+   NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+   PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF
+   NEFCLASS-J IS WITH YOU. SHOULD NEFCLASS-J PROVE DEFECTIVE, YOU ASSUME THE COST
+   OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+   IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY
+   COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY REDISTRIBUTE NEFCLASS-J AS
+   PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL,
+   INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE
+   NEFCLASS-PC (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED
+   INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF
+   NEFCLASS-PC TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER
+   PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. 
+

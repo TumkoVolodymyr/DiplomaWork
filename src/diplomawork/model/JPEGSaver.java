@@ -30,7 +30,7 @@ public class JPEGSaver implements SeriesChangeListener {
 
     private TimeSeries timeSeries;
     int n = 0, trainCount = 0;
-    int width = 20, hight = 100;
+    int width = 200, hight = 100;
     JPGFileChangeListener fileChangeListener;
     String nameOfJPGFile;
 

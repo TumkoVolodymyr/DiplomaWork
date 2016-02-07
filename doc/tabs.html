@@ -1,0 +1,507 @@
+<HTML>
+<HEAD>
+
+<TITLE>Project Specification</TITLE>
+  <!-- Changed by: Ulrike Nauck, Jan. 1999 -->
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" LINK="#00968C">
+
+<a name="top">&nbsp;</a><BR>
+<!------------------------- Project Specification Dialog -------------->
+<a name="projectspecification">&nbsp;</a><BR>
+<h3>The Color Code of the Project Specification Dialog</h3>
+<P>
+The six tabs of the dialog have different colours. If further dialogs are 
+opened concerening the matter of a tab the same colour for this dialog is used. 
+This way a connection to the  different steps of creating a classifier is given.
+The topics of the tabs and the assigned colours are:
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><B>Project (emerald green)</B><BR>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><B>Data (blue)</B><BR>
+	connected dialogs:
+        <TABLE>
+          <TR>
+           <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+           </TD>
+           <TD>progress dialog for file loading
+           </TD>
+          </TR>
+        </TABLE>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><B>Classifier (yellow)</B><BR>
+        connected dialogs:
+       <TABLE>
+         <TR>
+           <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+           </TD>
+           <TD>view the fuzzy sets
+           </TD>
+         </TR>
+
+         <TR>
+           <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+           </TD>
+           <TD>edit the rule base
+           </TD>
+         </TR>
+       </TABLE>
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD><B>Rule Creation (orange)</B><BR>
+       connected dialogs:
+        <TABLE>
+          <TR>
+           <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+           </TD>
+           <TD>view the learning process in a progress dialog
+           </TD>
+          </TR>
+        </TABLE>	
+   </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD>	<B>Training FSets (green)</B><BR>
+        connected dialogs:
+        <TABLE>
+          <TR>
+           <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+           </TD>
+           <TD>view the training progress, errors are drawn in a graph
+           </TD>
+          </TR>
+        </TABLE>	
+   </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD><B>Training Control (pink)</B>
+   </TD>
+  </TR>
+</TABLE>
+<P>
+The project specification dialog has to be closed before other dialogs or 
+the main menu is enabled again (except the dialogs invoked from one of the tabs). 
+This may sometimes be uncomfortable but it helps to do a consistency check of 
+the parameters. If some settings are not valid the dialog cannot be closed and 
+the user has to look for the problem. This way inconsistent projects are avoided.
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+<P>
+
+<!------------------------------ Project Tab----------------------------->
+<a name="projecttab">&nbsp;</a><BR>
+<h3><I>Project</I> Tab</h3>
+<P>
+<TABLE>
+ <TR><TD><img alt="" src="images/project_s.gif" align="left"></TD></TR>
+</TABLE>
+<P>
+
+In the <I>Project</I> tab of the 
+<a href="nefclasshelp.html#projectdialog" target="main">Project Specification</a> 
+dialog all 
+specifications concerning the project can be done. 
+These are:
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+    </TD>
+    <TD>A project title which is used to build a 
+        <a href="nefclasshelp.html#projectfile">project file name</a> if there is 
+        specified none.
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+   </TD>
+   <TD>A project description.
+   </TD>
+  </TR>
+</TABLE>
+<P>
+<B>See also</B>: The philosophy of 
+    <a href="nefclasshelp.html#nefclassphilosophy" target="main">NEFCLASS-J</A>  
+<P>
+
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+<P>
+
+
+<!-------------------------- Data --------------------------->
+<A name="d">&nbsp;</A>
+<br>
+<a name="datatab">&nbsp;</a><BR>
+<h3><I>Data</I> Tab</h3>
+<P>
+<TABLE>
+<TR><TD><img alt="" src="images/data_s.gif" align="left"></TD></TR>
+</TABLE>
+<P>
+In the <I>Data</I> tab of the 
+<a href="nefclasshelp.html#projectdialog" target="main">Project Specification</a> dialog
+all actions
+concerning the <a href="#datafile"> training data file</a> can be done. 
+These are:
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><B>Load a Training Data File</B><BR>
+        An open dialog will be invoked. If the chosen <a href="#datafile">training
+        data file</a> is not formatted 
+        in NEFCLASS style a message box opens with this information. 
+        The file name cannot be written in the text field in the left of the 
+        button, it is only meant for display. The progress of opening the file 
+        is shown in a message box where also some informations about the data 
+        are displayed.
+        <P>
+        Another possibility to load a data file is to choose 
+       'Project|Load Training Data'. An open dialog will also be invoked. 
+        But this is only possible when the 
+        Project Specification Dialog is closed. After the file is opended the 
+        filename and if existing a description will be inserted into the 
+        <I>Data</I> tab when the dialog is opened the next time.
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><B>Edit the Labels</B><BR>
+        An editor is invoked where you can 
+        <a href="editlabels.html">edit the labels</a>
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD><B>View the Statistics of the Data.</B><BR>
+       A frame is invoked where <a href="view.html#statistics">statistics</A>
+       can be viewed.
+   </TD>
+  </TR>
+</TABLE>
+<P>
+<HR>
+
+<!--------------------The training data file------------->
+<a name="datafile">&nbsp;</a>
+<h3>The Training Data File</h3>
+
+The data file is the only file you must edit. NEFCLASS-J needs some 
+informations to initialize the classifier. These initial values with the 
+corresponding keywords must be written on the top of the pattern file. 
+A NEFCLASS data file consists of two to five blocks. Comments are 
+allowed between the blocks as well as line feeds or any kind of whitespace. 
+Every line of comment has to begin with %, # or //. 
+The blocks have the following structure:
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+    </TD>
+    <TD>The first line of a block is the keyword, i.e. this word is the 
+        only word in this line. Keyword are written in capital letters.
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+    </TD>
+    <TD>The following lines contain the corresponding data.
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+   </TD>
+   <TD>Some blocks need a keyword for the end of data.
+   </TD>
+  </TR>
+</TABLE>
+
+There is a mandatory first block and a mandatory last block. The other blocks 
+are optional and because of the use of kewords there is no need to stick to a 
+sequence. The blocks are described now in detail.
+<P>
+<B>Mandatory blocks:</B>
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+    </TD>
+    <TD>DIMENSIONS<BR>
+	DIMENSIONS has to be the first block in the file. The next line 
+        consists of two integer values. The first gives the number of 
+        independent variables that means input values, the second gives 
+        the number of dependant variables that means the number of classes. 
+        If no class information is given this value must be set to ‘0'.
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+   </TD>
+   <TD> PATTERNS<BR>
+	PATTERNS has to be the last block in the file.The line following the 
+        keyword consist of one integer value. This is the number of patterns.
+        In the following lines the patterns are listed one pattern per line. 
+	 <B>-</B> the values can be separated by any whitespace.<BR>
+	 <B>-</B> the values for the input variables may be real or integer<BR>
+	 <B>-</B> the classes must be coded as a real vector from [0, 1]^m 
+          (m is the number of classes). The class of the pattern is determined 
+          by the largest value. Usually each pattern belongs only to one class. 
+          Therefore all components except one are set to 0 and the one indicating 
+          the class is set to 1. For example, if there are 4 classes then class 2
+          will be encoded as 0 1 0 0.<BR>
+	<B>-</B>  this block can be finished with the keyword END. This is meant for 
+           data files used by NEFCLASS-PC. So files containing this keyword 
+           need not to be changed.
+   </TD>
+  </TR>
+</TABLE>
+
+<B>Optional blocks:</B>
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+    </TD>
+    <TD>Block for a data file description:<BR>
+        NAME<BR>
+	With using NAME only one line of description can follow in the next line. 
+       This command is used in data files used by NEFCLASS-PC. These files need 
+       not to be changed.<BR>
+       or<BR>
+       	STARTNAME / ENDNAME<BR>
+	The first line of this block is the keyword STARTNAME. The description
+        follows in the next lines. The block has to be finished with the keyword 
+        ENDNAME.
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+    </TD>
+    <TD>VARNAMES<BR>
+	In the lines following this keyword the variable names can be set. 
+        It might be easier to use NEFCLASS-J for this. When a data file is 
+        loaded default names are given to the input variables and the classes.
+        If you open the 'Project Specification' dialog and select the <I>Data</I> 
+        tab you will find a button 'Edit Labels'. Using this an editor is 
+        invoked where you can change the names. It has the advantage that 
+        you can change only some names. For the others the default names 
+        will be saved. If you write the names directly to the file, you have 
+        to name all variables and classes.
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+   </TD>
+   <TD>	INRANGES<BR>
+	Here the ranges for each input variable can be specified. The exact
+       ranges are computed during the patterns are loaded but here you can 
+       specify larger ranges for the patterns.
+   </TD>
+  </TR>
+</TABLE>
+
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+<P>
+
+
+<!-------------------------- Classifer --------------------------->
+<a name="classifiertab">&nbsp;</a><BR>
+<h3><I>Classifier</I> Tab</h3>
+<P>
+<TABLE>
+<TR><TD><img alt="" src="images/classifier_s.gif" align="left"></TD></TR>
+</TABLE>
+<P>
+In the <I>Classfier</I> tab of the 
+<a href="nefclasshelp.html#projectdialog" target="main">Project Specification</a> 
+dialog all actions
+concerning the classifier can be done. 
+These are:
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><B>Number and Type of Fuzzy Sets</B><BR>
+        For each variable a number of fuzzy sets (a fuzzy partitioning) has to 
+        be defined. By default three fuzzy sets are defined which automatically 
+        get names. The membership functions are equally distributed on the domain
+        of the respective input feature. There are three types that can be 
+        selected (triangular, trapezoidal and bell-shaped). As default the 
+        triangular membership function is used where the leftmost and rightmost
+        functions are shouldered. You have the following options:
+	<TABLE>
+   	 <TR>
+    	  <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+    	  </TD>
+    	  <TD>same for all variables
+    	  </TD>
+  	 </TR>
+
+ 	 <TR>
+   	  <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+  	  </TD>
+   	  <TD>individualy for each variable<BR>
+		If no data file is loaded this option cannot be selected. 
+      		So if you have problems one day, remember to check the 
+		<a href="#datatab"<I>Data</I> tab</a> for a data file.
+ 		If you select this item a <a href="partitionfs.html">dialog</a>
+               opens where the variables 
+		and their fuzzy set types and numbers are listed. Here the number 
+  		and type of fuzzy set for each variable can be set.
+   	  </TD>
+   	 </TR>
+	</TABLE>
+ 	
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><B>The Aggregation Function</B><BR>
+		Let us use the network view of the classifer for this explanation. 
+		Many rule units (hidden layer) can be connected to one class unit 
+		(output layer), i.e. many rules can have the same class in their 
+		consequent. The output of a rule unit is a degree of fulfilment. 
+		The rule units send their outputs to the class units. The 
+		aggregation function of a class unit (netu) calculates a value
+		 from the output values of the rule units that will be the output 
+		of the class unit.
+		<TABLE>
+ 		  <TR>
+		    <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+		    </TD>
+		    <TD>Weighted Sum<BR>
+			A weighted sum of the rule unit output values is calculated.
+  			If you decide to use rule weights this will be a weighted 
+			mean. 
+		    </TD>
+		  </TR>
+
+		 <TR>
+		   <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+		   </TD>
+		   <TD>Maximum<BR>
+			The maximum of the rule unit output values will be used
+			(eventually multiplied by an optional rule weight).
+		   </TD>
+		  </TR>
+		</TABLE>
+	 </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD><B>Interpretation of Classification Result</B><BR>
+		The output values of the class units calculated by the 
+		aggregation function need  not to give a clear classification 
+		decision if the propagated pattern belongs to a class. A crisp
+		output would be a vector where all components are '0' exept of one 
+		with '1'. Normally you will get a vector where all components have 
+		real values from [0,1]. The question is now how this can be 
+		interpreted. Up to now only one interpretation strategy is 
+		implemented.
+		<TABLE>
+		  <TR>
+		    <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+		    </TD>
+		    <TD>the winner takes all<BR>
+			The highest value is selected to define the class the 
+			propagated pattern is assigned to.
+		    </TD>
+		  </TR>
+		</TABLE>
+		In a next version of NEFCLASS-J additional interpretation 
+		strategies will be implemented.
+   </TD>
+  </TR>
+</TABLE>
+<P>
+With the button on the right the <a href="ruleedit.html">rule editor</A> dialog is
+invoked. Here the yellow (classifier) color instead of orange (rules) is chosen
+because this dialog is used to insert pior knowledge or editing the rule base. 
+After this the rulebase had to be learned again. So these rules can be seen
+as parameters set before the learning process of the classifier is started. <P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+<P>
+
+
+<!----------------------------Rule Creation ------------------------>
+<a name="rulecreationtab">&nbsp;</a><BR>
+<B><I>Rule Creation</I> Tab</B>
+<P>
+In the <I>Rule Creation</I> tab of the 'Project Specification' dialog all 
+specifications concerning the rulebase can be done.
+<p>
+
+<TABLE>
+<TR><TD><img alt="" src="images/rulecreation_s.gif" align="left"></TD></TR>
+</TABLE>
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+<P>
+
+
+<!------------------------ Training FSets ------------------------->
+<a name="trainingfsetstab">&nbsp;</a><BR>
+<B><I>Training FSets</I> Tab</B>
+<P>
+In the <I>Training Fsets</I> tab of the 'Project Specification' dialog all 
+specifications concerning the fuzzy sets can be done.
+<p>
+
+<TABLE>
+<TR><TD><img alt="" src="images/trainingfset_s.gif" align="left"></TD></TR>
+</TABLE>
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+<P>
+
+
+<!------------------------ Training Control ------------------------->
+<a name="trainingcontroltab">&nbsp;</a><BR>
+<B><I>Training Control</I> Tab</B>
+<P>
+In the <I>Training Control</I> tab of the 'Project Specification' dialog all 
+specifications concerning the stop control 
+and validation can be done.
+<p>
+
+<TABLE>
+<TR><TD><img alt="" src="images/trainingcontrol_s.gif" align="left"></TD></TR>
+</TABLE>
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+</BODY>
+</HTML>

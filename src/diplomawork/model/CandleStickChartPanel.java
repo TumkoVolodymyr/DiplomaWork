@@ -107,7 +107,7 @@ public class CandleStickChartPanel extends Thread {
                 try {
                     this.wait(Timer.ONE_SECOND * 5 * 4);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(ViewForDiagram.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(LineChartPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }

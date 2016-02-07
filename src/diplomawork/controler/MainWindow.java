@@ -6,16 +6,26 @@
 package diplomawork.controler;
 
 import diplomawork.model.CandleStickChartPanel;
+import diplomawork.model.DB.DB_table;
+import diplomawork.model.DB.QouteDataDBControler;
+import diplomawork.model.DB.QuoteDataDB;
 import diplomawork.model.GetDataFormYahoo;
 import diplomawork.model.JPEGSaver;
 import diplomawork.model.NNRecognizer;
 import diplomawork.model.Quote;
-import diplomawork.model.ViewForDiagram;
+import diplomawork.model.LineChartPanel;
+import diplomawork.model.Shares;
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.event.ListDataListener;
+import nauck.main.NewForm;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.Plot;
 
@@ -24,28 +34,44 @@ import org.jfree.chart.plot.Plot;
  * @author Volodymyr
  */
 public class MainWindow extends javax.swing.JFrame {
+    private JPanel jPanel;
+    private NNRecognizer nNRecognizer = new NNRecognizer();
 
     /**
      * Creates new form MainWindow
      */
-    private final String stock = "EURUSD=X";
-//    private final String stock2 = "BZK16.NYM";
-    String url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20csv%20where%20url%3D%27download.finance.yahoo.com%2Fd%2Fquotes.csv%3Fs%3D"+stock+"%26f%3Dnd1t1l1ohgc1p2wv%27&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
-    private final String name = GetDataFormYahoo.getQouteFromYahoo(url).getName();
-    ViewForDiagram viewForDiagram = new ViewForDiagram(name, url);
-    CandleStickChartPanel candleStickChartPanel = new CandleStickChartPanel(name, url);
-    NNRecognizer nNRecognizer = new NNRecognizer();
-    JPEGSaver jPEGSaver = new JPEGSaver(viewForDiagram.getTimeSeries(),nNRecognizer);
-
     public MainWindow() {
         initComponents();
-        viewForDiagram.getTimeSeries().addChangeListener(jPEGSaver);
-        JPanel jPanel = new JPanel(new GridLayout(2, 1));
-       
-        jPanel.add(viewForDiagram.getChartPanel());
-        jPanel.add(candleStickChartPanel.getChartPanel()); 
+        
+        DefaultComboBoxModel comboBoxModel = new DefaultComboBoxModel();
+        for (Shares shares : Shares.values()) {
+             comboBoxModel.addElement(shares.getFullName());
+        }
+        jComboBox2.setModel(comboBoxModel);
+        ResultSet resultSet = QouteDataDBControler.select("EUR");
+        jTable1.setModel(new DB_table(resultSet));
+
+        myInitComponents();
+        
+        
+    }
+    
+    private  void myInitComponents(){
+        String stock = "AAPL";
+        Shares shares = Shares.getByFullName(jComboBox2.getItemAt(jComboBox2.getSelectedIndex()));
+        stock = shares.getYahooShareName();
+        String url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20csv%20where%20url%3D%27download.finance.yahoo.com%2Fd%2Fquotes.csv%3Fs%3D" + stock + "%26f%3Dnd1t1l1ohgc1p2wv%27&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+        String name = shares.getFullName();
+        LineChartPanel lineChartPanel = new LineChartPanel(name, url);
+        CandleStickChartPanel candleStickChartPanel = new CandleStickChartPanel(name, url);
+        
+        JPEGSaver jPEGSaver = new JPEGSaver(lineChartPanel.getTimeSeries(), nNRecognizer);
+        lineChartPanel.getTimeSeries().addChangeListener(jPEGSaver);
+
+        jPanel = new JPanel(new GridLayout(2, 1));
+        jPanel.add(lineChartPanel.getChartPanel());
+        jPanel.add(candleStickChartPanel.getChartPanel());
         jInternalFrame1.setContentPane(jPanel);
-//        jInternalFrame2.setContentPane(viewForDiagram2.getChartPanel());
     }
 
     /**
@@ -57,10 +83,26 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jInternalFrame1 = new javax.swing.JInternalFrame();
         jButton1 = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jInternalFrame1.setMaximumSize(new java.awt.Dimension(1000, 800));
         jInternalFrame1.setPreferredSize(new java.awt.Dimension(1000, 800));
@@ -70,19 +112,53 @@ public class MainWindow extends javax.swing.JFrame {
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 574, Short.MAX_VALUE)
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
+            .addGap(0, 683, Short.MAX_VALUE)
         );
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jTabbedPane1.addTab("Chart", jInternalFrame1);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jTabbedPane2.addTab("QuoteData", jScrollPane1);
+
+        jTabbedPane1.addTab("Table", jTabbedPane2);
+
+        jComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox2ItemStateChanged(evt);
             }
         });
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("NEFCLASS");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,18 +167,22 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(0, 522, Short.MAX_VALUE))
-                    .addComponent(jInternalFrame1, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jInternalFrame1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1))
         );
 
@@ -110,16 +190,32 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JFreeChart chart = null;
-        try {
-            Plot plot =  (Plot) viewForDiagram.getChartPanel().getChart().getPlot().clone();
-            chart = new JFreeChart(null, JFreeChart.DEFAULT_TITLE_FONT, plot, false);
-        } catch (CloneNotSupportedException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }    
-        jPEGSaver.saveChartToFile(chart, true);
-        
+//        JFreeChart chart = null;
+//        try {
+//            Plot plot = (Plot) lineChartPanel.getChartPanel().getChart().getPlot().clone();
+//            chart = new JFreeChart(null, JFreeChart.DEFAULT_TITLE_FONT, plot, false);
+//        } catch (CloneNotSupportedException ex) {
+//            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        jPEGSaver.saveChartToFile(chart, true);
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        // TODO add your handling code here:
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new NewForm().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
+        // TODO add your handling code here:
+        System.out.println("sfsdf");
+        myInitComponents();
+    }//GEN-LAST:event_jComboBox2ItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -159,6 +255,15 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

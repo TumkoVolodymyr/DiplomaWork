@@ -1,0 +1,603 @@
+Classification of data file F:\Users\Volodymyr\Desktop\NEFCLASS\iris.dat
+
+pattern 0 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.228771 => correct
+  target:  1.000 0.000 0.000
+  output:  0.522 0.000 0.000
+
+pattern 1 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.189317 => correct
+  target:  1.000 0.000 0.000
+  output:  0.565 0.000 0.000
+
+pattern 2 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.029768 => correct
+  target:  1.000 0.000 0.000
+  output:  0.827 0.000 0.000
+
+pattern 3 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.006564 => correct
+  target:  1.000 0.000 0.000
+  output:  0.919 0.000 0.000
+
+pattern 4 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.114462 => correct
+  target:  1.000 0.000 0.000
+  output:  0.662 0.000 0.000
+
+pattern 5 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.092662 => correct
+  target:  1.000 0.000 0.000
+  output:  0.696 0.000 0.000
+
+pattern 6 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.032522 => correct
+  target:  1.000 0.000 0.000
+  output:  0.820 0.000 0.000
+
+pattern 7 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.002253 => correct
+  target:  1.000 0.000 0.000
+  output:  0.953 0.000 0.000
+
+pattern 8 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.006417 => correct
+  target:  1.000 0.000 0.000
+  output:  0.920 0.000 0.000
+
+pattern 9 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.189317 => correct
+  target:  1.000 0.000 0.000
+  output:  0.565 0.000 0.000
+
+pattern 10 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.458249 => correct
+  target:  1.000 0.000 0.000
+  output:  0.323 0.000 0.000
+
+pattern 11 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.000000 => correct
+  target:  1.000 0.000 0.000
+  output:  1.000 0.000 0.000
+
+pattern 12 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.228771 => correct
+  target:  1.000 0.000 0.000
+  output:  0.522 0.000 0.000
+
+pattern 13 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.114462 => correct
+  target:  1.000 0.000 0.000
+  output:  0.662 0.000 0.000
+
+pattern 14 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.452656 => correct
+  target:  1.000 0.000 0.000
+  output:  0.327 0.000 0.000
+
+pattern 15 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.006417 => correct
+  target:  1.000 0.000 0.000
+  output:  0.920 0.000 0.000
+
+pattern 16 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.092662 => correct
+  target:  1.000 0.000 0.000
+  output:  0.696 0.000 0.000
+
+pattern 17 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.006417 => correct
+  target:  1.000 0.000 0.000
+  output:  0.920 0.000 0.000
+
+pattern 18 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.088565 => correct
+  target:  1.000 0.000 0.000
+  output:  0.702 0.000 0.000
+
+pattern 19 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.034779 => correct
+  target:  1.000 0.000 0.000
+  output:  0.814 0.000 0.000
+
+pattern 20 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.006564 => correct
+  target:  1.000 0.000 0.000
+  output:  0.919 0.000 0.000
+
+pattern 21 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.114462 => correct
+  target:  1.000 0.000 0.000
+  output:  0.662 0.000 0.000
+
+pattern 22 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.092662 => correct
+  target:  1.000 0.000 0.000
+  output:  0.696 0.000 0.000
+
+pattern 23 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.092662 => correct
+  target:  1.000 0.000 0.000
+  output:  0.696 0.000 0.000
+
+pattern 24 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.203873 => correct
+  target:  1.000 0.000 0.000
+  output:  0.548 0.000 0.000
+
+pattern 25 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.006417 => correct
+  target:  1.000 0.000 0.000
+  output:  0.920 0.000 0.000
+
+pattern 26 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.088565 => correct
+  target:  1.000 0.000 0.000
+  output:  0.702 0.000 0.000
+
+pattern 27 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.032522 => correct
+  target:  1.000 0.000 0.000
+  output:  0.820 0.000 0.000
+
+pattern 28 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.092662 => correct
+  target:  1.000 0.000 0.000
+  output:  0.696 0.000 0.000
+
+pattern 29 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.189317 => correct
+  target:  1.000 0.000 0.000
+  output:  0.565 0.000 0.000
+
+pattern 30 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.043771 => correct
+  target:  1.000 0.000 0.000
+  output:  0.791 0.000 0.000
+
+pattern 31 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.043771 => correct
+  target:  1.000 0.000 0.000
+  output:  0.791 0.000 0.000
+
+pattern 32 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.030173 => correct
+  target:  1.000 0.000 0.000
+  output:  0.826 0.000 0.000
+
+pattern 33 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.006564 => correct
+  target:  1.000 0.000 0.000
+  output:  0.919 0.000 0.000
+
+pattern 34 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.092662 => correct
+  target:  1.000 0.000 0.000
+  output:  0.696 0.000 0.000
+
+pattern 35 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.114462 => correct
+  target:  1.000 0.000 0.000
+  output:  0.662 0.000 0.000
+
+pattern 36 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.178646 => correct
+  target:  1.000 0.000 0.000
+  output:  0.577 0.000 0.000
+
+pattern 37 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.143625 => correct
+  target:  1.000 0.000 0.000
+  output:  0.621 0.000 0.000
+
+pattern 38 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.029768 => correct
+  target:  1.000 0.000 0.000
+  output:  0.827 0.000 0.000
+
+pattern 39 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.143625 => correct
+  target:  1.000 0.000 0.000
+  output:  0.621 0.000 0.000
+
+pattern 40 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.002253 => correct
+  target:  1.000 0.000 0.000
+  output:  0.953 0.000 0.000
+
+pattern 41 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.189317 => correct
+  target:  1.000 0.000 0.000
+  output:  0.565 0.000 0.000
+
+pattern 42 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.178646 => correct
+  target:  1.000 0.000 0.000
+  output:  0.577 0.000 0.000
+
+pattern 43 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.178646 => correct
+  target:  1.000 0.000 0.000
+  output:  0.577 0.000 0.000
+
+pattern 44 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.178646 => correct
+  target:  1.000 0.000 0.000
+  output:  0.577 0.000 0.000
+
+pattern 45 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.006417 => correct
+  target:  1.000 0.000 0.000
+  output:  0.920 0.000 0.000
+
+pattern 46 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.143625 => correct
+  target:  1.000 0.000 0.000
+  output:  0.621 0.000 0.000
+
+pattern 47 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.189317 => correct
+  target:  1.000 0.000 0.000
+  output:  0.565 0.000 0.000
+
+pattern 48 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.114462 => correct
+  target:  1.000 0.000 0.000
+  output:  0.662 0.000 0.000
+
+pattern 49 	(Class 1) 	the classifier predicted Class 1. 	Error = 0.203873 => correct
+  target:  1.000 0.000 0.000
+  output:  0.548 0.000 0.000
+
+pattern 50 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.216096 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.541 0.071
+
+pattern 51 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.398875 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.372 0.071
+
+pattern 52 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.732387 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.147 0.071
+
+pattern 53 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.279244 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.472 0.000
+
+pattern 54 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.130409 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.639 0.000
+
+pattern 55 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.099100 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.693 0.071
+
+pattern 56 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.189243 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.571 0.071
+
+pattern 57 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.196242 => correct
+  target:  0.000 1.000 0.000
+  output:  0.062 0.561 0.000
+
+pattern 58 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.192539 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.561 0.000
+
+pattern 59 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.093161 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.695 0.000
+
+pattern 60 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.686102 => correct
+  target:  0.000 1.000 0.000
+  output:  0.062 0.174 0.000
+
+pattern 61 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.058485 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.758 0.000
+
+pattern 62 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.108955 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.670 0.000
+
+pattern 63 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.904846 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.049 0.000
+
+pattern 64 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.279244 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.472 0.000
+
+pattern 65 	(Class 2) 	the classifier predicted Class 1. 	Error = 0.786707 => false
+  target:  0.000 1.000 0.000
+  output:  0.561 0.313 0.000
+
+pattern 66 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.108955 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.670 0.000
+
+pattern 67 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.234281 => correct
+  target:  0.000 1.000 0.000
+  output:  0.329 0.645 0.000
+
+pattern 68 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.430569 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.344 0.000
+
+pattern 69 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.279244 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.472 0.000
+
+pattern 70 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.140022 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.626 0.000
+
+pattern 71 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.184264 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.571 0.000
+
+pattern 72 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.253094 => correct
+  target:  0.000 1.000 0.000
+  output:  0.262 0.571 0.000
+
+pattern 73 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.134431 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.693 0.201
+
+pattern 74 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.093161 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.695 0.000
+
+pattern 75 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.140022 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.626 0.000
+
+pattern 76 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.435549 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.344 0.071
+
+pattern 77 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.451594 => correct
+  target:  0.000 1.000 0.000
+  output:  0.462 0.512 0.000
+
+pattern 78 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.311170 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.442 0.000
+
+pattern 79 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.330786 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.429 0.071
+
+pattern 80 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.192539 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.561 0.000
+
+pattern 81 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.184264 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.571 0.000
+
+pattern 82 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.267065 => correct
+  target:  0.000 1.000 0.000
+  output:  0.196 0.522 0.000
+
+pattern 83 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.569315 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.245 0.000
+
+pattern 84 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.099100 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.693 0.071
+
+pattern 85 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.069048 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.737 0.000
+
+pattern 86 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.143911 => correct
+  target:  0.000 1.000 0.000
+  output:  0.062 0.626 0.000
+
+pattern 87 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.097641 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.696 0.071
+
+pattern 88 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.058485 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.758 0.000
+
+pattern 89 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.534233 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.297 0.201
+
+pattern 90 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.230393 => correct
+  target:  0.000 1.000 0.000
+  output:  0.323 0.645 0.000
+
+pattern 91 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.108955 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.670 0.000
+
+pattern 92 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.467516 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.495 0.461
+
+pattern 93 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.245417 => correct
+  target:  0.000 1.000 0.000
+  output:  0.129 0.522 0.000
+
+pattern 94 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.135389 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.639 0.071
+
+pattern 95 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.138973 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.627 0.000
+
+pattern 96 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.311170 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.442 0.000
+
+pattern 97 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.540121 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.344 0.331
+
+pattern 98 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.451594 => correct
+  target:  0.000 1.000 0.000
+  output:  0.462 0.512 0.000
+
+pattern 99 	(Class 2) 	the classifier predicted Class 2. 	Error = 0.232850 => correct
+  target:  0.000 1.000 0.000
+  output:  0.000 0.561 0.201
+
+pattern 100 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.069048 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.737
+
+pattern 101 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.378642 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.297 0.461
+
+pattern 102 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.255281 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.297 0.591
+
+pattern 103 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.474529 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.429 0.461
+
+pattern 104 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.130409 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.639
+
+pattern 105 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.029768 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.827
+
+pattern 106 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.093764 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.033 0.696
+
+pattern 107 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.194243 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.165 0.591
+
+pattern 108 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.092662 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.696
+
+pattern 109 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.000000 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 1.000
+
+pattern 110 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.114462 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.662
+
+pattern 111 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.130409 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.639
+
+pattern 112 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.166951 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.591
+
+pattern 113 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.092662 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.696
+
+pattern 114 	(Class 3) 	the pattern was not classified. 	Error = 1.000000 => false
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.000
+
+pattern 115 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.638759 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.201
+
+pattern 116 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.290311 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.461
+
+pattern 117 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.027033 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.836
+
+pattern 118 	(Class 3) 	the classifier predicted Class 2. 	Error = 0.995764 => false
+  target:  0.000 0.000 1.000
+  output:  0.000 0.363 0.071
+
+pattern 119 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.290311 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.461
+
+pattern 120 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.114462 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.662
+
+pattern 121 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.291414 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.033 0.461
+
+pattern 122 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.199158 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.099 0.565
+
+pattern 123 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.264571 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.231 0.541
+
+pattern 124 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.189317 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.565
+
+pattern 125 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.211116 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.541
+
+pattern 126 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.073153 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.730
+
+pattern 127 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.077499 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.722
+
+pattern 128 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.290311 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.461
+
+pattern 129 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.178646 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.577
+
+pattern 130 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.290311 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.461
+
+pattern 131 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.211552 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.320 0.670
+
+pattern 132 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.286861 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.320 0.571
+
+pattern 133 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.073153 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.730
+
+pattern 134 	(Class 3) 	the classifier predicted Class 2. 	Error = 0.535541 => false
+  target:  0.000 0.000 1.000
+  output:  0.000 0.495 0.461
+
+pattern 135 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.298869 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.363 0.591
+
+pattern 136 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.064404 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.746
+
+pattern 137 	(Class 3) 	the pattern was not classified. 	Error = 1.000000 => false
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.000
+
+pattern 138 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.474529 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.429 0.461
+
+pattern 139 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.092662 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.696
+
+pattern 140 	(Class 3) 	the classifier predicted Class 2. 	Error = 0.535541 => false
+  target:  0.000 0.000 1.000
+  output:  0.000 0.495 0.461
+
+pattern 141 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.178646 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.577
+
+pattern 142 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.189317 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.565
+
+pattern 143 	(Class 3) 	the classifier predicted Class 2. 	Error = 0.952177 => false
+  target:  0.000 0.000 1.000
+  output:  0.000 0.297 0.071
+
+pattern 144 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.291414 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.033 0.461
+
+pattern 145 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.130409 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.639
+
+pattern 146 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.069048 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.737
+
+pattern 147 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.299446 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.297 0.541
+
+pattern 148 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.092662 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.000 0.696
+
+pattern 149 	(Class 3) 	the classifier predicted Class 3. 	Error = 0.255281 => correct
+  target:  0.000 0.000 1.000
+  output:  0.000 0.297 0.591
+
+150 patterns processed, 7 misclassifications (including 2 unclassfied patterns).

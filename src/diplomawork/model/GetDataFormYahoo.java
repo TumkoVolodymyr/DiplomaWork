@@ -5,6 +5,8 @@
  */
 package diplomawork.model;
 
+import diplomawork.model.util.GanerateDataForTrainNN;
+import diplomawork.model.yahoodata.DataFromYahoo;
 import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -1,0 +1,823 @@
+<HTML>
+<HEAD>
+
+<TITLE>NEFCLASS-Help</TITLE>
+  <BASE TARGET="main">
+  <!-- Changed by: Ulrike Nauck, Jan. 1999 -->
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" LINK="#00968C">
+Welcome to the NEFCLASS-J helpfile. The alphabetical help is not ready yet. 
+For further information please refer to Chapter 5 of the thesis of Ulrike Nauck. 
+In a guided tour all features of the program are explained. This help file 
+contains the following topics up to now.
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><a href="#data">Data Files</a>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><a href="#nefclasstool">NEFCLASS_J: The Tool</a>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><a href="#nefclassphilosophy">NEFCLASS_J: The Philosophy</a>
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD><a href="#projectdialog">The Project Specification Dialog</a>
+   </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD><a href="#pruning">Pruning the Rule Base</a>
+   </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD><a href="#pruningmethods">Pruning Methods</a>
+   </TD>
+  </TR>
+</TABLE>
+<P>
+
+Also the linked files are only partly ready. But these informations can
+also be found in the thesis.
+<!----------------------------------- a ----------------------------------->
+<A name="a">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6> 
+
+<!----------------------------------- b ----------------------------------->
+<A name="b">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6> 
+
+<!----------------------------------- c ----------------------------------->
+<A name="c">&nbsp;</A>
+<br>
+<a name="classifier">&nbsp;</a><BR>
+<B>Classifier</B>
+<P>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- d ----------------------------------->
+<A name="d">&nbsp;</A>
+<br>
+<a name="data">&nbsp;</a><BR>
+<B>Data Files</B>
+<P>
+There are two kind of data files:
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><B>Training Data</B><BR>
+           This file has to contain the patterns with class information from which
+           the classifier is created. More information is given where the
+           <a href="datatab.html" target="_new">
+           <I>Data</I> tab</a> of the
+           <a href="#projectdialog">Project Specification Dialog</A> is 
+           explained.
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD><B>Application Data</B><BR>
+       The <i>classification </i>process of the application data which consists of
+       patterns with or without class information is started by the
+       main menu entry 'Classifier|Clasify Application data'.
+       The classification result is written into an
+       ASCII file named 'result.log'. If class information is given error
+       values are computed. Some <i>statistics</i> of the application data can be 
+       viewed by using the main 
+       menu entry 
+       <a href="view.html#statistics target="_new">
+       View|Statistics Application Data</a>.
+       <P>
+
+       
+
+    
+   </TD>
+  </TR>
+</TABLE>
+<P>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- e ----------------------------------->
+<A name="e">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- f ----------------------------------->
+<A name="f">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- g ----------------------------------->
+<A name="g">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- h ----------------------------------->
+<A name="h">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- i ----------------------------------->
+<A name="i">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- j ----------------------------------->
+<A name="j">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- k ----------------------------------->
+<A name="k">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- l ----------------------------------->
+<A name="l">&nbsp;</A>
+<br>
+<a name="learning">&nbsp;</a><BR>
+<B>Learning Process</B>
+<P>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- m ----------------------------------->
+<A name="m">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- n ----------------------------------->
+<A name="n">&nbsp;</A>
+<br>
+<!--------- contents ----->
+<A name="p">&nbsp;</A>
+<B>N Contents</B>
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_bl_lil.gif" HEIGHT=7>
+    </TD>
+    <TD><a href="#nefclasstool">NEFCLASS_J: The Tool</a>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_bl_lil.gif" HEIGHT=7>
+    </TD>
+    <TD><a href="#nefclassphilosophy">NEFCLASS-J: The Philosophy</a>
+    </TD>
+  </TR>
+
+</TABLE>
+<P>
+<HR>
+<P>
+
+<!----------------------------NEFCLASS-J: The Tool ----->
+<a name="nefclasstool">&nbsp;</a><BR>
+<h3>NEFCLASS-J: The Tool</h3>
+<P>
+<P>
+NEFCLASS-J is an interactive simulation software tool to develop a 
+<a href="#classifier">neuro-fuzzy classifier</a> from a given 
+<a href="#data">data file</a>. 
+There are several other methods which are able to do this but the focus of 
+the NEFCLASS model lies in the interpretability of the developed classifier. 
+The constraints of the learning algorithm allow the user to interactively 
+influence the training process. 
+<P>
+So the main goal of NEFCLASS is to help the user to create a readable classifier 
+that also provides an acceptable accuracy. However, the user has to be aware, 
+that readability and accuracy do not go together. An interpretable fuzzy 
+system should display the following features:
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD>few meaningful rules with few variables in their antecedents,
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD>few meaningful sets for each variable,
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD>there are no rule weights,
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD>	identical linguistic terms are represented by identical fuzzy sets,
+   </TD>
+  </TR>
+
+<TR>
+   <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD>only normal fuzzy sets are used, or even better fuzzy numbers 
+       or fuzzy intervals.
+   </TD>
+  </TR>
+
+</TABLE>
+<P>
+NEFCLASS-J implements a neuro-fuzzy model
+based on a generic 3-layer fuzzy perceptron. It is a further development of 
+NEFCLASS-PC but there are some more features and the graphic interface 
+changed completely. It is adapted now to the graphic interfaces of Windows 
+and Unix X-Terminals. In order to get a platform independent NEFCLASS-Tool 
+the programing language is Java. So every computer using an operating 
+system that supports a java interpreter is convenient.
+<P>
+
+<HR>
+<!----------------------------NEFCLASS-J: The Philosophy ----->
+<a name="nefclassphilosophy">&nbsp;</a><BR>
+<h3>NEFCLASS-J: The Philosophy</h3>
+<P>
+
+The handling of the created NEFCLASS system is organized in projects.
+Whenever a stage of development is reached that should be saved, this can 
+be done as a project. For the creation of a classifier the following steps 
+have to be done:
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD>Parameters to define and constrain the classifiers have to be set. 
+        Some of them (e.g. learning rate, aggregation function, stop control, 
+        learning procedure) can be set without  a data file to be opened. 
+        Others like number and type of fuzzy sets depend on the patterns. 
+        So the next step is to
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD>open a data file for training. After the definition of all parameters 
+        (default values are set) the
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD valign="top">training of the classifier can be started
+	<TABLE>
+          <TR>
+           <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+           </TD>
+           <TD>in two single steps, first the rule learning and in a second 
+               step the training of fuzzy sets or
+           </TD>
+         </TR>
+
+         <TR>
+           <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+           </TD>
+           <TD>in one step.
+          </TD>
+         </TR>
+      </TABLE>	
+   </TD>
+  </TR>
+</TABLE>
+<P>
+
+In every state it is possible to save the project. If a data file is loaded 
+the file name is saved in the project so that it will be loaded automatically 
+when the project is opened again. So be careful with moving your data files. 
+If the classifier is just created additional to the project file a classifier 
+file is saved. The project file is supposed to have the extension ‘.prj'. 
+It contains the parameter definitions used to create the classifier. The 
+classifier file is supposed to have the extension ‘.cls'. It contains the 
+rule base and all other informations to describe the classifier. The user only 
+needs to save the project and the files will be created automatically. These 
+files are in ASCII code and can be viewed with any editor. It is possible to 
+handle one project at a time only. So a project has to be closed before another 
+one can be opened.
+<P>
+Furthermore it is possible to load a second data file which can used for testing 
+the network or even classifying unknown data. It can be loaded by 
+‘Project|Open Application Data'. Although it is sortet into the Project menu 
+it is not neatly connected to it. Another project can be loaded to classifiy 
+this data. It is not saved with any project as it is done with the training data. 
+<P>
+The data files cannot be closed explicitely. They are simply replaced when a 
+new file is loaded. NEFCLASS will do a consistency check if the new data file 
+fits the classifier. If not a message is given that the project must be closed
+ and a new one has to be created. With closing the project the data files are 
+also closed.
+<P>
+The handling of a project is controlled by the
+<a href=#projectdialog>Project Specification Dialog</a> which is opend when one of
+the following main menu entries is selected:
+<TABLE>
+  <TR>
+    <TD><img alt="" src="images/p_grau.gif" HEIGHT=7>
+    </TD>
+    <TD><B>Project|New </B>envokes the dialog with default values.
+    </TD>
+  </TR>
+
+  <TR>
+    <TD><img alt="" src="images/p_grau.gif" HEIGHT=7>
+    </TD>
+    <TD><B>Project|Edit </B>shows the parameter setting of the active classifier.
+    </TD>
+  </TR>
+
+ <TR>
+   <TD><img alt="" src="images/p_grau.gif" HEIGHT=7>
+   </TD>
+   <TD><B>Project|Open </B>loads a project and envokes the dialog with 
+		the parameters of this classifier.
+   </TD>
+  </TR>
+</TABLE>
+<P>
+In this dialog all parameters can be specified.
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- o ----------------------------------->
+<A name="o">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- p ----------------------------------->
+<!--------- contents ----->
+<A name="p">&nbsp;</A>
+<B>P Contents</B>
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_bl_lil.gif" HEIGHT=7>
+    </TD>
+    <TD><a href="#projectdialog">Project Specification Dialog</a>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_bl_lil.gif" HEIGHT=7>
+    </TD>
+    <TD><a href="#pruning">Pruning the Rule Base</a>
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_bl_lil.gif" HEIGHT=7>
+   </TD>
+   <TD><a href="#pruningmethods">Pruning Methods</a>
+   </TD>
+  </TR>
+</TABLE>
+<P>
+<HR>
+<P>
+
+<!----------------------------The Project Specification Dialog----->
+<a name="projectdialog">&nbsp;</a>
+<BR>
+<h3>The Project Specification Dialog</h3>
+<P>
+In this dialog every parameter of the classifier can be specified. 
+This dialog is envoked by the following main menue entries:
+<BR>
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+    </TD>
+    <TD><B>Project|New </B>envokes the dialog with default values.
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+    </TD>
+    <TD><B>Project|Edit </B>shows the parameter setting of the active classifier.
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=7>
+   </TD>
+   <TD><B>Project|Open </B>loads a project and envokes the dialog with 
+		the parameters of this classifier.
+   </TD>
+  </TR>
+</TABLE>
+<P>
+
+<TABLE>
+<TR><TD><img alt="" src="images/project_s.gif" align="left"></TD></TR>
+</TABLE>
+<P>
+<B>See also</B>: <BR>
+
+- The philosophy of <a href="#nefclassphilosophy">NEFCLASS_J</A> <BR>
+- The <a href="alltabs.html" target="_new">color code</a>
+   of the Project Specification Dialog
+<P>
+The tabs of this dialog name six categories of parameters describing a classifier.
+The tabs are devided into two parts. On the left the parameter settings can be 
+done and on the right a short description of the certain parameter is given. 
+The tabs are:
+<TABLE>
+  <TR>
+    <TD><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><a href="projecttab.html" target="_new">Project</a>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><a href="datatab.html" target="_new">Data</a>
+    </TD>
+  </TR>
+
+ <TR>
+   <TD><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD><a href="classifiertab.html" target="_new">
+       Classifier</a>
+   </TD>
+  </TR>
+
+ <TR>
+   <TD><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD><a href="rulecreationtab.html" target="_new">
+       Rule Creation</a>
+   </TD>
+  </TR>
+
+ <TR>
+   <TD><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD><a href="trainingfsetstab.html" target="_new">
+       Training Fuzzy Sets</a>
+   </TD>
+  </TR>
+
+ <TR>
+   <TD><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD><a href="trainingcontroltab.html" target="_new">
+       Training Control</a>
+   </TD>
+  </TR>
+</TABLE>
+<P>
+<HR>
+<P>
+
+<!------------------------------- Pruning ------------------>
+<a name="pruning">&nbsp;</a><BR>
+<h3>Pruning the Rule Base</h3>
+<P>
+Pruning the rule base is used to improve the interpretability of the classifier. 
+Pruning tries to get the same or a better classification results with a smaller 
+rule base. There are three options to prune the rule base:
+<p>
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD><B>Manual Pruning</B>
+        <br>
+	For this open the <A href="ruleedit.html" target="_new">rule editor</a>. Every line for
+       a rule has a number and the performance of the rule in the beginning.
+       Use the values for the performance to find out which are the good rules. 
+       Then you have two possibilities:
+      <TABLE>
+       <TR>
+        <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+        </TD>
+        <TD>use the 'good rules as prior knowledge'<BR>
+	   - erase the rules with the smallest performance values<BR>
+	   - set the ‘number of rules' parameter the same as rules are specified 
+             now, <BR>
+	   - set the ‘relearn the rulebase' option and<BR> 
+	   - create the classifier again. <BR>
+	   Think about resetting the fuzzy sets before 
+          (this need not to be done but you can try it).
+        </TD>
+      </TR>
+
+      <TR>
+       <TD valign="top"><img alt="" src="images/p_grau.gif" HEIGHT=6>
+       </TD>
+       <TD>create a completely new rule base<BR>
+	   - count the 'good rules',<BR>
+	   - remove all rules,<BR>
+	   - set the 'number of rules' parameter to the value you counted,<BR>
+	   - reset the fuzzy sets,<BR>
+	   - create the classifier.
+       </TD>
+      </TR>
+     </TABLE>
+     If this process was not successful you can get the old rulebase by using 
+     'Rules|Restore Rule Base'. But remember that only the last rule base can be 
+     restored. If you do this manual pruning process several times you have to 
+     save the former classifier under a new project name. Please remember further 
+     that you might have changed the fuzzy sets. The  item 
+     'Classifier|Restore Fuzzy Sets' of the main menu will restore the state 
+     before the  last step.
+     <p>
+    With this you only can erase rules. Methods which also reduces the number 
+    of variables  in a rule are used in the pruning option described next.
+    <P>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top">&nbsp;<BR>
+                     <img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD>&nbsp;<BR>
+        <B>Automatic Pruning</B>
+        <br>
+	Please note that the old rule base can be restored after the pruning 
+        process. But just in case it may be better to save the classifier under 
+        a new project name before starting to prune.
+        <BR>
+	There are <a href="#pruningmethods">four methods</a> that are implemented 
+        for automatical pruning. These methods are automatically used one
+        after the other. After a method is used the fuzzy sets are trained. 
+        For this the selected validation mode is used. If the resulting classifier
+        produces a smaller number of misclassifications or a smaller error value 
+        than the former one, this new one is taken to be improved with the next 
+        pruning method. During this process all parameters you specified, except 
+        these concerning the rulebase, are used.
+        <br> 
+	<B>See also</B>: <BR>
+       <a href="createclassifier.html#rulelearn" target="_new">
+           Learn the Rule Base</a> and 
+	<a href="createclassifier.html#fuzzysetstrain" target="_new">
+           Train the Fuzzy Sets</a>. 
+       There the windows are explained which will be opened to show a 
+       documentation of the process
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top">&nbsp;<BR>
+                    <img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD>&nbsp;<BR>
+       <B>Semi-automatic Pruning</B><BR>
+	This is not implemented yet. It is planed for the next version to offer 
+        the four pruning methods to the user. This way the sequence of using 
+        the methods is free to select.
+   </TD>
+  </TR>
+</TABLE>
+<P>
+<HR>
+
+<!----------------------------------Pruning Methods ---------------->
+<a name="pruningmethods">&nbsp;</a>
+<H3>Pruning Methods</H3>
+<P>
+The learning algorithm of the NEFCLASS model provides good results for many 
+classification problems. However, a good interpretation of the learning result 
+cannot always be guaranteed, especially for high-dimensional problems. Because 
+interpretation is one reason for using a fuzzy classifier in the first place, 
+there is a need to enhance the learning algorithms of a neuro-fuzzy system with 
+techniques for simplifying the obtained result [Nauck/Kruse 97]. Four pruning 
+strategies are used to improve the interpretability of the classifier.
+<P>
+<B>Delete linguisitc terms from the antecedent of a rule under certain
+aspects</B>:
+<p>
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD>A variable is not important for the classification.
+        <P>
+	The task is to find out if there is an input variable that is not 
+        necessary for the classification. For this the correlations of the input
+        variables with the class information is used. Variables that have a low 
+        correlation are tested whether they can be deleted from the antecedet or 
+        not. Under a statistical view it is dubious to use the correlation, but 
+        it is only used to find out a sequence of testing the variables and is not
+        used to delete a variable. 
+	<P>
+       The variable with the lowest correlation is the first to be tested. It is 
+       deleted from the antecedents of all rules, a consistency check of the rule
+       base follows and the fuzzy sets are trained. If this improves the 
+       classification result this classifier is taken as the current one and the
+       next variable with the lowest correlation is tested. If a test fails and 
+       no improvement was reached the last classifier that improved the 
+       classification result is the outcome of this pruning method.
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top">&nbsp;<BR><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD>&nbsp;<BR>
+        A variable is not important for the degree of fulfilment of a rule.
+        <P>
+	For each rule the linguistic term is identified whose membership degree
+       is identical to the degree of fulfilment of the rule in the least number 
+       of cases. The rule with the smallest number is selected and the identified
+       term is removed from its antecedent, and a consistency check is done. 
+       After this the fuzzy sets are trained and if the classifer can be 
+       improved it is kept and this pruning step is repeated. If the classifier 
+       cannot be improved the previous one is restored. The last classifier that
+       improved the classification result is the outcome of this pruning method.
+    </TD>
+  </TR>
+
+ <TR>
+   <TD valign="top">&nbsp;<BR><img alt="" src="images/p_mint.gif" HEIGHT=7>
+   </TD>
+   <TD>	&nbsp;<BR>
+        A term uses fuzzy set with a very large support
+        <P>
+	If a variable is partitioned by more than two fuzzy sets, sometimes 
+        the support for one or more of them can become quite large during
+        learning. This can be seen as evidence, that such a fuzzy set is 
+        superfluous. 
+	<P>
+       The fuzzy sets of every variable are sorted by their width. The term
+       with the widest fuzzy set of all is deleted from all rules. Only in 
+       rules where it is the last term of the antecedent it is not deleted.
+       A consistency check of the rule base follows and the fuzzy sets are 
+       trained. If this improves the classification result this classifier is 
+       taken as the current one and the fuzzy set with the next biggest width 
+       is examined. This process stops when the classification result is not 
+       improved anymore. The last classifier that improved the classification 
+       result is the outcome of this pruning method.
+   </TD>
+  </TR>
+</TABLE>
+<P>
+
+<B>Delete rules that never or very rarely provide the maximum degree of fulfilment 
+for the class given by their consequent.</B>
+<P>
+<TABLE>
+  <TR>
+    <TD valign="top"><img alt="" src="images/p_mint.gif" HEIGHT=7>
+    </TD>
+    <TD>All patterns are presented to the rules. For every rule it is counted
+        how often the classification is correct and it produces the maximum 
+        degree of fulfilment for the correct class. The rule with the smallest
+        number is deleted and the fuzzy sets are trained. If this improves the 
+        classification result this classifier is taken as the current one and 
+        the rule with the next lowest number is deleted. This process stops when
+        a test fails and no improvement was reached or if no rule can be deleted 
+        because there is only one for each class. The last improved classifier
+       is the result of this pruning method.
+    </TD>
+  </TR>
+</TABLE>
+<P>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- q ----------------------------------->
+<A name="q">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- r ----------------------------------->
+<A name="r">&nbsp;</A>
+<br>
+
+<a name="rules">&nbsp;</a><BR>
+<B>Rules</B>
+<P>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- s ----------------------------------->
+<A name="s">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- t ----------------------------------->
+<A name="t">&nbsp;</A>
+<br>
+<a name="training">&nbsp;</a><BR>
+<B>Training Process</B>
+<P>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- u ----------------------------------->
+<A name="u">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- v ----------------------------------->
+<A name="v">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- w ----------------------------------->
+<A name="w">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- x ----------------------------------->
+<A name="x">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- y ----------------------------------->
+<A name="y">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+<!----------------------------------- z ----------------------------------->
+<A name="z">&nbsp;</A>
+<br>
+
+<P>
+<img alt="" src="images/l_mint.gif" HEIGHT=6>
+
+</BODY>
+</HTML>
