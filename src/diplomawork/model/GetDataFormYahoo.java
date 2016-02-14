@@ -33,7 +33,7 @@ public class GetDataFormYahoo {
      * @return {@code BigDecimal} Price at curent time
      */
     public static Double getPriceValue(String url) {
-        return getQouteFromYahoo(url).getLast();
+        return getQuoteFromYahoo(url).getLast();
     }
     /***
      * Get DataFromYahoo from YahoooFinance URL
@@ -51,7 +51,7 @@ public class GetDataFormYahoo {
      * @param url URL adres off server
      * @return Quote with all prices
      */
-    public static Quote getQouteFromYahoo(String url) {
+    public static Quote getQuoteFromYahoo(String url) {
         DataFromYahoo dataFromYahoo = getData(url);
         String name = dataFromYahoo.getQuery().getResults().getRow().getName();
         String timeStr = dataFromYahoo.getQuery().getResults().getRow().getTime().toUpperCase();
@@ -70,6 +70,7 @@ public class GetDataFormYahoo {
 //            System.out.println("Date 2= " + dateD);
 //            DateFormat df = DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT, local);
 //            System.out.println("currentDate = " + df.format(dateD));
+            dateD.setSeconds(new Date(System.currentTimeMillis()).getSeconds());
             Quote quote = new Quote(name, dateD, Last, Open, High, Low, Volume);
             return quote;
         } catch (ParseException ex) {

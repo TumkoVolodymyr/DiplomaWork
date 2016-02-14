@@ -16,6 +16,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.time.Minute;
+import org.jfree.data.time.Second;
 import org.jfree.data.time.ohlc.OHLCItem;
 import org.jfree.data.time.ohlc.OHLCSeries;
 import org.jfree.data.time.ohlc.OHLCSeriesCollection;
@@ -40,6 +41,9 @@ public class CandleStickChartPanel extends Thread {
         stock = name;
         chartPanel = createChartPanel();
         this.start();
+        System.out.println(this.getName()+" started");
+        System.out.println(this.getClass().toString()+" started");
+        
     }
 
     /**
@@ -91,14 +95,14 @@ public class CandleStickChartPanel extends Thread {
      */
     @Override
     public void run() {
-        Date lastDate = new Date();
-        Quote quote = GetDataFormYahoo.getQouteFromYahoo(url);
+        Double lastPrice = -1.2;
+        Quote quote = GetDataFormYahoo.getQuoteFromYahoo(url);
         stock = quote.getName();
         while (this != null) {
-            quote = GetDataFormYahoo.getQouteFromYahoo(url);
-            if (lastDate.compareTo(quote.getDate()) != 0) {
-                lastDate = quote.getDate();
-                OHLCItem oHLCItem = new OHLCItem(new Minute(quote.getDate()), quote.getOpen(), quote.getHigh(), quote.getLow(), quote.getLast());
+            quote = GetDataFormYahoo.getQuoteFromYahoo(url);
+            if (lastPrice.compareTo(quote.getLast()) != 0) {
+                lastPrice= quote.getLast();
+                OHLCItem oHLCItem = new OHLCItem(new Second(quote.getDate()), quote.getOpen(), quote.getHigh(), quote.getLow(), quote.getLast());
                 oHLCSeries.add(oHLCItem);
                 oHLCSeries.fireSeriesChanged();
             }

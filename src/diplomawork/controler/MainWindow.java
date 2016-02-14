@@ -7,64 +7,62 @@ package diplomawork.controler;
 
 import diplomawork.model.CandleStickChartPanel;
 import diplomawork.model.DB.DB_table;
-import diplomawork.model.DB.QouteDataDBControler;
-import diplomawork.model.DB.QuoteDataDB;
-import diplomawork.model.GetDataFormYahoo;
+import diplomawork.model.DB.QuoteDataDBControler;
 import diplomawork.model.JPEGSaver;
 import diplomawork.model.NNRecognizer;
-import diplomawork.model.Quote;
 import diplomawork.model.LineChartPanel;
 import diplomawork.model.Shares;
-import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.sql.ResultSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.event.ListDataListener;
 import nauck.main.NewForm;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.Plot;
 
 /**
  *
  * @author Volodymyr
  */
 public class MainWindow extends javax.swing.JFrame {
+
     private JPanel jPanel;
     private NNRecognizer nNRecognizer = new NNRecognizer();
+    LineChartPanel lineChartPanel;
+    CandleStickChartPanel candleStickChartPanel;
 
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
+
         
+        myInitComponents();
+
+    }
+
+    private void myInitComponents() {
         DefaultComboBoxModel comboBoxModel = new DefaultComboBoxModel();
         for (Shares shares : Shares.values()) {
-             comboBoxModel.addElement(shares.getFullName());
+            comboBoxModel.addElement(shares.getFullName());
         }
         jComboBox2.setModel(comboBoxModel);
-        ResultSet resultSet = QouteDataDBControler.select("EUR");
-        jTable1.setModel(new DB_table(resultSet));
-
-        myInitComponents();
-        
-        
-    }
-    
-    private  void myInitComponents(){
         String stock = "AAPL";
         Shares shares = Shares.getByFullName(jComboBox2.getItemAt(jComboBox2.getSelectedIndex()));
         stock = shares.getYahooShareName();
         String url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20csv%20where%20url%3D%27download.finance.yahoo.com%2Fd%2Fquotes.csv%3Fs%3D" + stock + "%26f%3Dnd1t1l1ohgc1p2wv%27&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
         String name = shares.getFullName();
-        LineChartPanel lineChartPanel = new LineChartPanel(name, url);
-        CandleStickChartPanel candleStickChartPanel = new CandleStickChartPanel(name, url);
-        
+        if (lineChartPanel != null) {
+            System.out.println(lineChartPanel.getName() + " stoped");
+            lineChartPanel.stop();
+        }
+        if (candleStickChartPanel != null) {
+            System.out.println(candleStickChartPanel.getName() + " stoped");;
+            candleStickChartPanel.stop();
+        }
+
+        lineChartPanel = new LineChartPanel(name, url,nNRecognizer);
+        candleStickChartPanel = new CandleStickChartPanel(name, url);
+
         JPEGSaver jPEGSaver = new JPEGSaver(lineChartPanel.getTimeSeries(), nNRecognizer);
         lineChartPanel.getTimeSeries().addChangeListener(jPEGSaver);
 
@@ -101,6 +99,12 @@ public class MainWindow extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
             }
         });
 
@@ -213,9 +217,15 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
         // TODO add your handling code here:
-        System.out.println("sfsdf");
         myInitComponents();
     }//GEN-LAST:event_jComboBox2ItemStateChanged
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+        String name = jComboBox2.getItemAt(jComboBox2.getSelectedIndex());
+        ResultSet resultSet = QuoteDataDBControler.selectAllByName(name);
+        jTable1.setModel(new DB_table(resultSet));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -249,6 +259,7 @@ public class MainWindow extends javax.swing.JFrame {
             @Override
             public void run() {
                 new MainWindow().setVisible(true);
+
             }
         });
     }

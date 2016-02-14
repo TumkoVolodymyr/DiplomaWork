@@ -34,6 +34,14 @@ public enum Shares {
        }
        return EURdUSD;
    }
+   public static Shares getByStockName (String stockName){
+       for (Shares share : values()) {
+           if (share.getYahooShareName().equals(stockName)){
+               return share;
+           }
+       }
+       return EURdUSD;
+   }
     
 
 }

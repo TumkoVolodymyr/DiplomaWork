@@ -5,8 +5,11 @@
  */
 package diplomawork.model;
 
+import diplomawork.model.DB.QuoteDataDBControler;
 import java.awt.Color;
+import java.awt.List;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,7 +35,7 @@ public class LineChartPanel extends Thread {
 
     private TimeSeries timeSeries;
     String stock = "EURUSD=X";
-
+    private NNRecognizer nNRecognizer;
     private String url;
 
     public TimeSeries getTimeSeries() {
@@ -44,11 +47,15 @@ public class LineChartPanel extends Thread {
         return chartPanel;
     }
 
-    public LineChartPanel(String name, String url) {
+    public LineChartPanel(String name, String url,NNRecognizer nNRecognizer) {
         this.url = url;
         this.stock = name;
+        this.nNRecognizer = nNRecognizer;
         chartPanel = createChartPanel();
         this.start();
+        System.out.println(this.getName()+" started");
+        System.out.println(this.getClass().toString()+" started");
+        
     }
 
     /**
@@ -127,11 +134,25 @@ public class LineChartPanel extends Thread {
         Double price = new Double(-1);
         while (this != null) {
 //          Float price = (GetDataFormYahoo.getPriceValue(url) != null) ? GetDataFormYahoo.getPriceValue().floatValue() : 1;
-            Quote  quote = GetDataFormYahoo.getQouteFromYahoo(url);
+            Quote  quote = GetDataFormYahoo.getQuoteFromYahoo(url);
+            
             Double tmpPrice = quote.getLast();
+//            System.out.println("price = "+price);
+//            System.out.println("tmpPrice= "+tmpPrice);
+//            System.out.println("Date= "+quote.getDate());
             if (!tmpPrice.equals(price)) {
                 price = tmpPrice;
-                
+                java.util.List<Quote> qouteList = QuoteDataDBControler.getLastNQuotesByName(20, Shares.getByStockName(stock).getFullName());
+                Double [] priceArray = new Double[qouteList.size()];
+                int i=0;
+                for (Quote quoteTmp : qouteList) {
+                    priceArray[i]=quoteTmp.getLast();
+                    i++;
+                }
+                quote.setHerst(Hurst.calcHurst(priceArray).floatValue());
+                quote.setTrend(AdaptivFilter.calcTrendMany(priceArray));
+                nNRecognizer.setQuote(quote);
+                QuoteDataDBControler.addQuoteData(quote);
                 timeSeries.add(new Second(quote.getDate()), price);
             }
 

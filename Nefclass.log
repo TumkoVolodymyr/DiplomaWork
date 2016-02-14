@@ -1,0 +1,73 @@
+% NEFCLASS log file file created by NEFCLASS-J 1.0 (c) Ulrike Nauck, Braunschweig, 1999
+% This file was created at February 14, 2016 11:33:29 PM EET
+
+Training data: F:\Users\Volodymyr\Documents\NetBeansProjects\DiplomaWork\TemplateOutAll.dat
+Training for at most 100 cycles and for at least 0 cycles.
+Continue for 10 cycles after a local optimum was found.
+Learning will stop at 0 misclassifications.
+50% of the data are used for single validation (test validation mode)
+Parameter: LearningRate = 0.01, Fuzzy set constraints: 
+keep order, must overlap, 
+rule weights are not used.
+The rule base will consist of 10 rules using the best 5 rules for each class.
+Each variable uses 3 Треугольная fuzzy sets.
+Fuzzy set learning will not be invoked.
+
+Starting the training process using 100.0% of all cases.
+Searching for rules in the training data...
+
+0 possible rules found. Now determine the optimal consequents.
+
+
+Performances of Rule Candidates per Class
+
+Selection of consequents is complete.
+Writing the rules to the log file, please wait.
+
+
+0 rules found in the data:
+
+
+Best per class rule learning: selecting the best 5 rules for each class.
+Best rules per class selected, trimming the rule base.
+Rule base with 0 rules created.
+
+This rule base covers all patterns.
+Performance on training data (100.0% of all cases):
+0 patterns, 0 misclassifications (error = 0.000000)
+
+     | Predicted Class
+     |                  0 |                  1 |               n.c. |                sum | 
+------------------------------------------------------------------------------------------
+   0 |        0 (   NaN%) |        0 (   NaN%) |        0 (   NaN%) |        0 (   NaN%) | 
+   1 |        0 (   NaN%) |        0 (   NaN%) |        0 (   NaN%) |        0 (   NaN%) | 
+------------------------------------------------------------------------------------------
+ sum |        0 (   NaN%) |        0 (   NaN%) |        0 (   NaN%) |        0 (100.00%) | 
+------------------------------------------------------------------------------------------
+
+Correct: 0 (NaN%), Misclassified: 0 (NaN%)
+
+   0: UP
+   1: DOWN
+n.c.: not classified
+
+
+Performance on validation data (0% of all cases):
+1 patterns, 1 misclassifications (error = 1.000000)
+
+     | Predicted Class
+     |                  0 |                  1 |               n.c. |                sum | 
+------------------------------------------------------------------------------------------
+   0 |        0 (  0.00%) |        0 (  0.00%) |        1 (100.00%) |        1 (100.00%) | 
+   1 |        0 (  0.00%) |        0 (  0.00%) |        0 (  0.00%) |        0 (  0.00%) | 
+------------------------------------------------------------------------------------------
+ sum |        0 (  0.00%) |        0 (  0.00%) |        1 (100.00%) |        1 (100.00%) | 
+------------------------------------------------------------------------------------------
+
+Correct: 0 (0.00%), Misclassified: 1 (100.00%)
+
+   0: UP
+   1: DOWN
+n.c.: not classified
+
+

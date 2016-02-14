@@ -1,0 +1,45 @@
+% This is the IRIS data set reformatted for use in NEFCLASS-PC 2.0
+% There is no class information within the data, but the patterns are
+% sorted by their class
+% Class 1 is Iris-setosa (1-50), class 2 is Iris-versicolor (51-100), and
+% class 3 is Iris-virginica (101-150).
+% This file contains the whole data set with 150 cases, 50 for each class
+DIMENSIONS
+8 2
+
+% Name of the pattern set
+NAME
+DataForClacificationTemplate.DAT: Iris data,  no class information
+
+% There is no class information
+#UNKNOWN
+VARNAMES
+HeadAndSoulders
+ReversHeadAndSoulders
+DoubleTop
+ReversDoubleTop
+TripleTop
+ReversTripleTop
+Trend
+Hurst
+UP
+DOWN
+
+% Ranges of the 8 input variables
+INRANGES
+0 1
+0 1
+0 1
+0 1
+0 1
+0 1
+0 1
+0 1
+
+% This are the 150 patterns,
+% first given are the number of patterns, inputs and outputs (here: 0)
+PATTERNS
+
+1
+0.024	0	0.046	0	0	1	1.124	0.434	1	0
+END

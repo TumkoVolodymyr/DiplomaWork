@@ -9,8 +9,14 @@ package diplomawork.model.DB;
  * @author Владимир
  */
 import com.sun.org.apache.bcel.internal.generic.SWITCH;
+import diplomawork.model.Quote;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
@@ -86,7 +92,7 @@ public class DB_table extends AbstractTableModel {
      * @param rs ResultSet from which all information for model is token.
      * @throws SQLException
      * @throws ClassNotFoundException
-     */
+     */  
     public void setDataSource(ResultSet rs) {
         try {
             ResultSetMetaData rsmd = rs.getMetaData();
@@ -106,7 +112,10 @@ public class DB_table extends AbstractTableModel {
                 for (int i = 0; i < columnCount; i++) {
                     if (columnTypes.get(i) == String.class) {
                         rowData.add(rs.getString(i + 1));
-                    } else {
+                    } else if (columnNames.get(i).equals("Date")) {
+                        DateFormat format = new SimpleDateFormat("M/dd/yyyy HH:mm:ss ");
+                        rowData.add(format.format(rs.getDate(i + 1)));
+                    }else{
                         rowData.add(rs.getObject(i + 1));
                     }
                 }
@@ -117,6 +126,11 @@ public class DB_table extends AbstractTableModel {
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DB_table.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            rs.close();
         } catch (SQLException ex) {
             Logger.getLogger(DB_table.class.getName()).log(Level.SEVERE, null, ex);
         }

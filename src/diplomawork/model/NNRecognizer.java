@@ -7,6 +7,11 @@ package diplomawork.model;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
@@ -23,11 +28,15 @@ import org.neuroph.imgrec.ImageRecognitionPlugin;
  */
 public class NNRecognizer extends Thread implements JPGFileChangeListener {
 
+    private Quote quote;
+
     /**
      * Create object and run the thread
      */
     public NNRecognizer() {
         this.start();
+        System.out.println(this.getName() + " started");
+        System.out.println(this.getClass().toString() + " started");
     }
 
     /**
@@ -73,7 +82,21 @@ public class NNRecognizer extends Thread implements JPGFileChangeListener {
             for (String key : output.keySet()) {
                 outputString += key + " : " + numberFormat.format(output.get(key)) + "\n";
             }
+
+            String resultForFile = "1\n"
+                    + numberFormat.format(output.get("HeadAndSoulders")) + "\t"
+                    + numberFormat.format(output.get("ReversHeadAndSoulders")) + "\t"
+                    + numberFormat.format(output.get("DoubleTop")) + "\t"
+                    + numberFormat.format(output.get("ReversDoubleTop")) + "\t"
+                    + numberFormat.format(output.get("TripleTop")) + "\t"
+                    + numberFormat.format(output.get("ReversTripleTop")) + "\t"
+                    + numberFormat.format(quote.getTrend()) + "\t"
+                    + numberFormat.format(quote.getHerst())
+                    +"\nEND\n";
+            resultForFile = resultForFile.replace(",", ".");
+            writeToFile(resultForFile);
             System.out.println(outputString);
+            System.out.println(resultForFile);
 //            Neuron[] neurophs = imageRecognition.getParentNetwork().getInputNeurons();
 //            for (int l = 0; l < neurophs.length; l++) {
 //                if (l % 20 == 0) {
@@ -93,9 +116,8 @@ public class NNRecognizer extends Thread implements JPGFileChangeListener {
     }
 
     public static void main(String[] args) {
-        NNRecognizer nNRecognizer = new NNRecognizer();
-        nNRecognizer.recognizeImage();
-        nNRecognizer.stop();
+        writeToFile("fdf");
+
     }
 
     @Override
@@ -110,4 +132,32 @@ public class NNRecognizer extends Thread implements JPGFileChangeListener {
 
         }
     }
+
+    public void setQuote(Quote quote) {
+        this.quote = quote;
+    }
+
+    private static void writeToFile(String str) {
+        File file = new File("Template.dat");
+        File fileOut = new File("TemplateOut.dat");
+        //if file doesnt exists, then create it
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException ex) {
+                Logger.getLogger(NNRecognizer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        URI fileName = file.toURI();
+        try {
+            byte[] oldData = Files.readAllBytes(Paths.get(fileName));
+            Files.write(fileOut.toPath(), oldData);
+            Files.write(fileOut.toPath(), str.getBytes(), StandardOpenOption.APPEND);
+
+        } catch (IOException ex) {
+            Logger.getLogger(NNRecognizer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
 }
