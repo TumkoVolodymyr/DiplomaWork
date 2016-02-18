@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.text.DecimalFormat;
@@ -18,7 +17,6 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.neuroph.core.NeuralNetwork;
-import org.neuroph.core.Neuron;
 import org.neuroph.core.exceptions.VectorSizeMismatchException;
 import org.neuroph.imgrec.ImageRecognitionPlugin;
 
@@ -29,6 +27,7 @@ import org.neuroph.imgrec.ImageRecognitionPlugin;
 public class NNRecognizer extends Thread implements JPGFileChangeListener {
 
     private Quote quote;
+    int directionOfTrend;
 
     /**
      * Create object and run the thread
@@ -82,7 +81,7 @@ public class NNRecognizer extends Thread implements JPGFileChangeListener {
             for (String key : output.keySet()) {
                 outputString += key + " : " + numberFormat.format(output.get(key)) + "\n";
             }
-
+            
             String resultForFile = "1\n"
                     + numberFormat.format(output.get("HeadAndSoulders")) + "\t"
                     + numberFormat.format(output.get("ReversHeadAndSoulders")) + "\t"
@@ -90,7 +89,7 @@ public class NNRecognizer extends Thread implements JPGFileChangeListener {
                     + numberFormat.format(output.get("ReversDoubleTop")) + "\t"
                     + numberFormat.format(output.get("TripleTop")) + "\t"
                     + numberFormat.format(output.get("ReversTripleTop")) + "\t"
-                    + numberFormat.format(quote.getTrend()) + "\t"
+                    + numberFormat.format(directionOfTrend) + "\t"
                     + numberFormat.format(quote.getHerst())
                     +"\nEND\n";
             resultForFile = resultForFile.replace(",", ".");
@@ -115,10 +114,10 @@ public class NNRecognizer extends Thread implements JPGFileChangeListener {
         }
     }
 
-    public static void main(String[] args) {
-        writeToFile("fdf");
-
-    }
+//    public static void main(String[] args) {
+//        writeToFile("fdf");
+//
+//    }
 
     @Override
     /**
@@ -133,11 +132,12 @@ public class NNRecognizer extends Thread implements JPGFileChangeListener {
         }
     }
 
-    public void setQuote(Quote quote) {
+    public void setQuoteAndTrendDirec(Quote quote, int dirTr) {
         this.quote = quote;
+        this.directionOfTrend = dirTr;
     }
 
-    private static void writeToFile(String str) {
+    private void writeToFile(String str) {
         File file = new File("Template.dat");
         File fileOut = new File("TemplateOut.dat");
         //if file doesnt exists, then create it

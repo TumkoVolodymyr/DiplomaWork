@@ -13,11 +13,10 @@ import diplomawork.model.NNRecognizer;
 import diplomawork.model.LineChartPanel;
 import diplomawork.model.Shares;
 import java.awt.GridLayout;
+import java.awt.event.ItemEvent;
 import java.sql.ResultSet;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
-import nauck.main.NewForm;
-
 /**
  *
  * @author Volodymyr
@@ -25,43 +24,53 @@ import nauck.main.NewForm;
 public class MainWindow extends javax.swing.JFrame {
 
     private JPanel jPanel;
+    private JPanel jPanelTrendHurs;
     private NNRecognizer nNRecognizer = new NNRecognizer();
-    LineChartPanel lineChartPanel;
-    CandleStickChartPanel candleStickChartPanel;
+    private LineChartPanel lineChartPanel;
+    private LineChartPanel lineChartPanelTrend;
+    private LineChartPanel lineChartPanelHurs;
+    private CandleStickChartPanel candleStickChartPanel;
 
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
-
-        
-        myInitComponents();
-
-    }
-
-    private void myInitComponents() {
         DefaultComboBoxModel comboBoxModel = new DefaultComboBoxModel();
         for (Shares shares : Shares.values()) {
             comboBoxModel.addElement(shares.getFullName());
         }
         jComboBox2.setModel(comboBoxModel);
+
+        myInitComponents();
+
+    }
+
+    private void myInitComponents() {
+        System.out.println("initmy");
         String stock = "AAPL";
         Shares shares = Shares.getByFullName(jComboBox2.getItemAt(jComboBox2.getSelectedIndex()));
         stock = shares.getYahooShareName();
         String url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20csv%20where%20url%3D%27download.finance.yahoo.com%2Fd%2Fquotes.csv%3Fs%3D" + stock + "%26f%3Dnd1t1l1ohgc1p2wv%27&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
         String name = shares.getFullName();
         if (lineChartPanel != null) {
-            System.out.println(lineChartPanel.getName() + " stoped");
+            System.out.println(lineChartPanel.getName() + " stop");
+            System.out.println(lineChartPanel.getClass() + " stop");
             lineChartPanel.stop();
         }
         if (candleStickChartPanel != null) {
-            System.out.println(candleStickChartPanel.getName() + " stoped");;
+            System.out.println(candleStickChartPanel.getName() + " stop");
+            System.out.println(candleStickChartPanel.getClass() + " stop");
             candleStickChartPanel.stop();
         }
+        
 
-        lineChartPanel = new LineChartPanel(name, url,nNRecognizer);
+        
+        
+        lineChartPanelTrend = new LineChartPanel("Trend");
+        lineChartPanelHurs = new LineChartPanel("Hurst");
         candleStickChartPanel = new CandleStickChartPanel(name, url);
+        lineChartPanel = new LineChartPanel(name, url, nNRecognizer,lineChartPanelTrend.getTimeSeries(), lineChartPanelHurs.getTimeSeries());
 
         JPEGSaver jPEGSaver = new JPEGSaver(lineChartPanel.getTimeSeries(), nNRecognizer);
         lineChartPanel.getTimeSeries().addChangeListener(jPEGSaver);
@@ -69,7 +78,11 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel = new JPanel(new GridLayout(2, 1));
         jPanel.add(lineChartPanel.getChartPanel());
         jPanel.add(candleStickChartPanel.getChartPanel());
+        jPanelTrendHurs = new JPanel(new GridLayout(2, 1));
+        jPanelTrendHurs.add(lineChartPanelHurs.getChartPanel());
+        jPanelTrendHurs.add(lineChartPanelTrend.getChartPanel());
         jInternalFrame1.setContentPane(jPanel);
+        jInternalFrame2.setContentPane(jPanelTrendHurs);
     }
 
     /**
@@ -87,6 +100,7 @@ public class MainWindow extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jInternalFrame2 = new javax.swing.JInternalFrame();
         jComboBox2 = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -142,6 +156,23 @@ public class MainWindow extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Table", jTabbedPane2);
 
+        jInternalFrame2.setMaximumSize(new java.awt.Dimension(1000, 800));
+        jInternalFrame2.setPreferredSize(new java.awt.Dimension(1000, 800));
+        jInternalFrame2.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
+        jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
+        jInternalFrame2Layout.setHorizontalGroup(
+            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 574, Short.MAX_VALUE)
+        );
+        jInternalFrame2Layout.setVerticalGroup(
+            jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 683, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Trend & Hurst", jInternalFrame2);
+
         jComboBox2.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox2ItemStateChanged(evt);
@@ -190,6 +221,8 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jButton1))
         );
 
+        jTabbedPane1.getAccessibleContext().setAccessibleName("Trend & Hurst");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -210,14 +243,16 @@ public class MainWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewForm().setVisible(true);
+                new NEFCLASSForm().setVisible(true);
             }
         });
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
         // TODO add your handling code here:
-        myInitComponents();
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            myInitComponents();
+        }
     }//GEN-LAST:event_jComboBox2ItemStateChanged
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
@@ -268,6 +303,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

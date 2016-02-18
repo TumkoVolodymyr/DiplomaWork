@@ -16,29 +16,27 @@ import java.util.function.UnaryOperator;
  */
 public class Hurst {
 
+//    /**
+//     *
+//     * @param x function H = hurst_my(x)
+//     */
+//    static void calcHurstAll(Double[] x) {
+//        int n = x.length;
+//        Double[] h = new Double[n];
+//        h = zeroInit(h);
+//        int k = 20;
+//        for (int i = k; i < n; i++) {
+//            Double[] data = Arrays.copyOfRange(x, i - k, i);
+//            h[i] = calcHurst(data);
+//            System.out.println(h[i]);
+//        }
+//    }
     /**
      *
-     * @param x 
-     * function H = hurst_my(x)
-     */
-    
-    static void calcHurstAll(Double[] x) {
-        int n = x.length;
-        Double[] h = new Double[n];
-        h = zeroInit(h);
-        int k = 20;
-        for (int i = k; i < n; i++) {
-            Double[] data = Arrays.copyOfRange(x, i - k, i);
-            h[i] = calcHurst(data);
-            System.out.println(h[i]);
-        }     
-    }
-    /**
-     * 
      * @param x
-     * @return 
+     * @return
      */
-    static Double calcHurst(Double[] x) {
+    public static Double calcHurst(Double[] x) {
         int n = x.length;
         Double a = Math.PI / 2;
         final Double mn = sum(x) / x.length;
@@ -55,36 +53,37 @@ public class Hurst {
                     return t - mn;
                 }
             });
-            xtn[i]=sum((Double[]) list.toArray());
-//            System.out.println("xtn[i]= "+xtn[i]);
+            xtn[i] = sum((Double[]) list.toArray());
+
         }
-        Double maxXtn= xtn[0];
-        Double minXtn= xtn[0];
-        
+        Double maxXtn = xtn[0];
+        Double minXtn = xtn[0];
+
         for (int i = 0; i < xtn.length; i++) {
-            if (maxXtn<xtn[i]) {
-                maxXtn=xtn[i];  
+            if (maxXtn < xtn[i]) {
+                maxXtn = xtn[i];
             }
-            if (minXtn>xtn[i]) {
-                minXtn=xtn[i];
-            } 
+            if (minXtn > xtn[i]) {
+                minXtn = xtn[i];
+            }
         }
         Double r = maxXtn - minXtn;
         Double s = std(x);
-        Double Ht = Math.log(r/s)/Math.log((n-1)*a);
+        Double Ht = Math.log(r / s) / Math.log((n - 1) * a);
         return Ht;
-    }    
-    static Double std (Double [] x){
+    }
+
+    private static Double std(Double[] x) {
         final Double mn = sum(x) / x.length;
         Double sum = 0.0;
         for (int i = 0; i < x.length; i++) {
-            sum+=Math.pow(x[i]-mn, 2); 
+            sum += Math.pow(x[i] - mn, 2);
         }
-        sum=sum/x.length;
+        sum = sum / x.length;
         return Math.sqrt(sum);
     }
 
-    static Double sum(Double[] arr) {
+    private static Double sum(Double[] arr) {
         Double sum = 0.0;
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
@@ -92,16 +91,15 @@ public class Hurst {
         return sum;
     }
 
-    static Double[] zeroInit(Double[] arr) {
+    private static Double[] zeroInit(Double[] arr) {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = 0.0;
         }
         return arr;
     }
 
-    public static void main(String[] args) {
-        Double[] x = {1.2, 3.0, 1.0, 6.0, 4.0, 9.0, 11.2, 7.0, 9.0, 12.0, 7.0, 9.0, 1.2, 3.0, 1.0, 6.0, 4.0, 9.0, 11.2, 7.0, 9.0, 12.0, 7.0, 9.0
-        ,1.2, 3.0, 1.0, 6.0, 4.0, 9.0, 11.2, 7.0, 9.0, 12.0, 7.0, 9.0, 1.2, 3.0, 1.0, 6.0, 4.0, 9.0, 11.2, 7.0, 9.0, 12.0, 7.0, 9.0};
-        calcHurstAll(x);
-    }
+//    public static void main(String[] args) {
+//        Double[] x = {1.2, 3.0, 1.0, 6.0, 4.0, 9.0, 11.2, 7.0, 9.0, 12.0, 7.0, 9.0, 1.2, 3.0, 1.0, 6.0, 4.0, 9.0, 11.2, 7.0, 9.0, 12.0, 7.0, 9.0, 1.2, 3.0, 1.0, 6.0, 4.0, 9.0, 11.2, 7.0, 9.0, 12.0, 7.0, 9.0, 1.2, 3.0, 1.0, 6.0, 4.0, 9.0, 11.2, 7.0, 9.0, 12.0, 7.0, 9.0};
+//        calcHurstAll(x);
+//    }
 }

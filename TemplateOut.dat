@@ -31,7 +31,7 @@ INRANGES
 0 1
 0 1
 0 1
-0 1
+-1 1
 0 1
 
 % This are the 150 patterns,
@@ -39,5 +39,5 @@ INRANGES
 PATTERNS
 
 1
-1	0	0	0	0	0	1.123	0.552
+0	0	0	0	0	0	1	0.649
 END

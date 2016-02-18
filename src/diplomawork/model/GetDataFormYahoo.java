@@ -83,7 +83,7 @@ public class GetDataFormYahoo {
      * @param urlS URL adres off server
      * @return  jsong string
      */
-    public static String getContenxtWeb(String urlS) {
+    private static String getContenxtWeb(String urlS) {
         String result = "";
         URL url;
         try {

@@ -7,10 +7,8 @@ package diplomawork.model;
 
 import diplomawork.model.DB.QuoteDataDBControler;
 import java.awt.Color;
-import java.awt.List;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.management.timer.Timer;
@@ -34,28 +32,36 @@ import org.jfree.ui.RectangleInsets;
 public class LineChartPanel extends Thread {
 
     private TimeSeries timeSeries;
-    String stock = "EURUSD=X";
+    private TimeSeries trendTimeSeries;
+    private TimeSeries hurstTimeSeries;
+    private String stock = "EURUSD=X";
     private NNRecognizer nNRecognizer;
     private String url;
-
+    private ChartPanel chartPanel;
     public TimeSeries getTimeSeries() {
         return timeSeries;
     }
-    private ChartPanel chartPanel;
 
     public ChartPanel getChartPanel() {
         return chartPanel;
     }
 
-    public LineChartPanel(String name, String url,NNRecognizer nNRecognizer) {
+    public LineChartPanel(String name, String url,NNRecognizer nNRecognizer, TimeSeries trendTimeSeries,
+     TimeSeries hurstTimeSeries) {
         this.url = url;
         this.stock = name;
         this.nNRecognizer = nNRecognizer;
+        this.trendTimeSeries = trendTimeSeries;
+        this.hurstTimeSeries = hurstTimeSeries;
         chartPanel = createChartPanel();
         this.start();
         System.out.println(this.getName()+" started");
         System.out.println(this.getClass().toString()+" started");
         
+    }
+    public LineChartPanel(String name) {
+        this.stock = name;  
+        chartPanel = createChartPanel();
     }
 
     /**
@@ -142,18 +148,22 @@ public class LineChartPanel extends Thread {
 //            System.out.println("Date= "+quote.getDate());
             if (!tmpPrice.equals(price)) {
                 price = tmpPrice;
-                java.util.List<Quote> qouteList = QuoteDataDBControler.getLastNQuotesByName(20, Shares.getByStockName(stock).getFullName());
+                java.util.List<Quote> qouteList = QuoteDataDBControler.getLastNQuotesByName(20, stock);
                 Double [] priceArray = new Double[qouteList.size()];
                 int i=0;
                 for (Quote quoteTmp : qouteList) {
                     priceArray[i]=quoteTmp.getLast();
                     i++;
                 }
+                System.out.println("Hurst.calcHurst(priceArray)= "+Hurst.calcHurst(priceArray));
                 quote.setHerst(Hurst.calcHurst(priceArray).floatValue());
                 quote.setTrend(AdaptivFilter.calcTrendMany(priceArray));
-                nNRecognizer.setQuote(quote);
+                int directionTrend =  ((qouteList.get(qouteList.size()-1).getTrend()-quote.getTrend())>0)?-1:1;
+                nNRecognizer.setQuoteAndTrendDirec(quote,directionTrend);
                 QuoteDataDBControler.addQuoteData(quote);
                 timeSeries.add(new Second(quote.getDate()), price);
+                trendTimeSeries.add(new Second(quote.getDate()), quote.getTrend());
+                hurstTimeSeries.add(new Second(quote.getDate()), quote.getHerst());
             }
 
             synchronized (this) {

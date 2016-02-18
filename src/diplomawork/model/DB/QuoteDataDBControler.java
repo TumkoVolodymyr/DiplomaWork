@@ -178,27 +178,27 @@ public class QuoteDataDBControler {
         return null;
     }
 
-    public static void main(String[] args) {
-        try {
-            resSet = selectAllByName("EUR");
-            int n = resSet.getFetchSize();
-            System.out.println("edffd=  " + n);
-            while (resSet.next()) {
-                int id = resSet.getInt("id");
-                String name = resSet.getString("Name");
-
-                System.out.println("ID = " + id);
-                System.out.println("name = " + name);
-                System.out.println();
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(QuoteDataDBControler.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        List<Quote> al = getLastNQuotesByName(2, "EUR");
-        for (Quote quote : al) {
-            System.out.println(""+quote.toString());
-        }
-        closeConnection();
-    }
+//    public static void main(String[] args) {
+//        try {
+//            resSet = selectAllByName("EUR");
+//            int n = resSet.getFetchSize();
+//            System.out.println("edffd=  " + n);
+//            while (resSet.next()) {
+//                int id = resSet.getInt("id");
+//                String name = resSet.getString("Name");
+//
+//                System.out.println("ID = " + id);
+//                System.out.println("name = " + name);
+//                System.out.println();
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(QuoteDataDBControler.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        List<Quote> al = getLastNQuotesByName(2, "EUR");
+//        for (Quote quote : al) {
+//            System.out.println(""+quote.toString());
+//        }
+//        closeConnection();
+//    }
 
 }

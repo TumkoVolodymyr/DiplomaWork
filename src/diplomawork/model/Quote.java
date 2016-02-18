@@ -87,14 +87,4 @@ public class Quote {
     public void setHerst(Float herst) {
         this.herst = herst;
     }
-
-    @Override
-    public String toString() {
-        String res = name + "\n"+Date+ "\n"+Last;
-        return res; //To change body of generated methods, choose Tools | Templates.
-    }
-
-
-    
-
 }

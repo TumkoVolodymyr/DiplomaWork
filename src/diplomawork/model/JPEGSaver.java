@@ -29,10 +29,10 @@ import org.jfree.ui.RectangleInsets;
 public class JPEGSaver implements SeriesChangeListener {
 
     private TimeSeries timeSeries;
-    int n = 0, trainCount = 0;
-    int width = 200, hight = 100;
-    JPGFileChangeListener fileChangeListener;
-    String nameOfJPGFile;
+//    int n = 0, trainCount = 0;
+    private int width = 200, hight = 100;
+    private JPGFileChangeListener fileChangeListener;
+    private String nameOfJPGFile;
 
     /**
      *
@@ -89,7 +89,7 @@ public class JPEGSaver implements SeriesChangeListener {
      * @param chart Chart that saved
      * @param trainFlag flag for saving train or usual name file
      */
-    public void saveChartToFile(JFreeChart chart, boolean trainFlag) {
+    private void saveChartToFile(JFreeChart chart, boolean trainFlag) {
         chart.setBackgroundPaint(Color.white);
         XYPlot plot = (XYPlot) chart.getPlot();
         plot.getDomainAxis().setVisible(false);
@@ -107,7 +107,7 @@ public class JPEGSaver implements SeriesChangeListener {
         plot.getRenderer().setSeriesStroke(0, new java.awt.BasicStroke(4f));
         File f = null;
         if (trainFlag) {
-            nameOfJPGFile = "src/resorce/TranePlot" + trainCount++ + ".jpg";
+            nameOfJPGFile = "src/resorce/TranePlot" +  ".jpg";
             f = new File(nameOfJPGFile);
         } else {
 //            f = new File("src/resorce/Plot" + n++ + ".jpg");

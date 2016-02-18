@@ -8,38 +8,33 @@ package diplomawork.model.DB;
  *
  * @author Владимир
  */
-import com.sun.org.apache.bcel.internal.generic.SWITCH;
-import diplomawork.model.Quote;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Locale;
-import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 
 public class DB_table extends AbstractTableModel {
 
-    public Connection con;
+//    public Connection con;
     private ArrayList<String> columnNames = new ArrayList<String>();
     private ArrayList<Class> columnTypes = new ArrayList<Class>();
     private ArrayList data = new ArrayList();
 
-    public DB_table(String query, Connection con2) {
-        try {
-            this.con = con2;
-            Statement st;
-            ResultSet rs;
-            st = this.con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            rs = st.executeQuery(query);
-            this.setDataSource(rs);
-        } catch (SQLException ex) {
-            Logger.getLogger(DB_table.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//    public DB_table(String query, Connection con2) {
+//        try {
+//            this.con = con2;
+//            Statement st;
+//            ResultSet rs;
+//            st = this.con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+//            rs = st.executeQuery(query);
+//            this.setDataSource(rs);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DB_table.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
     public DB_table( ResultSet rs) {    
             this.setDataSource(rs);   
     }
@@ -102,7 +97,7 @@ public class DB_table extends AbstractTableModel {
 
             int columnCount = rsmd.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
-                columnNames.add(rowZag(rsmd.getColumnName(i + 1)));
+                columnNames.add(rsmd.getColumnName(i + 1));
                 Class type = Class.forName(rsmd.getColumnClassName(i + 1));
                 columnTypes.add(type);
             }
@@ -134,40 +129,6 @@ public class DB_table extends AbstractTableModel {
         } catch (SQLException ex) {
             Logger.getLogger(DB_table.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    String rowZag(String name) {
-        String pover;
-        switch (name) {
-            case "idkoryst":
-                pover = "Ідентифікатор";
-                break;
-            case "login":
-                pover = "Логін";
-                break;
-            case "parol":
-                pover = "Пароль";
-                break;
-            case "name":
-                pover = "Ім'я";
-                break;
-            case "adres":
-                pover = "Адреса";
-                break;
-            case "kontakty":
-                pover = "Ел. пошта";
-                break;
-            case "rol_koryst":
-                pover = "Роль користувача";
-                break;
-            case "reestr":
-                pover = "Зар'еєстрований";
-                break;
-
-            default:
-                pover = name;
-        }
-        return pover;
     }
 
 }
